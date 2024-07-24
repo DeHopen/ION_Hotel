@@ -4,7 +4,7 @@ import styles from '@/styles/placeholder.module.scss'
 interface PlaceholderProps {
   mainText: string,
   additionalText: string
-};
+}
 
 const Placeholder: FC<PlaceholderProps> = ({mainText, additionalText}) => {
   console.log('Render Placeholder');
@@ -13,7 +13,7 @@ const Placeholder: FC<PlaceholderProps> = ({mainText, additionalText}) => {
       <>
         <div className={styles.container}>
           <span className={styles.text}>{mainText}</span>
-          <span className={styles.dot}></span>
+          <img src='/Placeholder/placeholder_dot.svg' alt='Placeholder'/>
           <span className={styles.text}>{additionalText}</span>
         </div>
       </>

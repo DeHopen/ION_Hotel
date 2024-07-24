@@ -3,13 +3,15 @@
 import {useState, FC} from "react";
 import styles from "@/styles/carousel.module.scss"
 import Image from "next/image";
+import Placeholder from "@/components/UniversalComponents/Placeholder";
+import {kanitCyrillic} from '@/styles/fonts/fonts'
 
 interface ImageProps {
   src: string;
   alt: string;
   title: string;
-  mainText?: string;
-  additionalText?: string;
+  mainText: string;
+  additionalText: string;
 }
 
 interface CarouselProps {
@@ -39,10 +41,12 @@ const Carousel:FC<CarouselProps> = ({ images }) => {
             {images.map((image, index) => (
                 <div key={index} className={styles.carousel}>
                   <img src={image.src} alt={image.alt} className={styles.img}/>
-
                   <div className={styles.overlay}></div>
+                  <Placeholder mainText={image.mainText} additionalText={image.additionalText}/>
                   <div className={styles.textOverlay}>
-                    <h2 className={styles.title}>{image.title}</h2>
+                    <div className={kanitCyrillic.className}>
+                      <h2 className={styles.title}>{image.title}</h2>
+                    </div>
                   </div>
                 </div>
             ))}

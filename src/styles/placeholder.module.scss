@@ -1,0 +1,8 @@
+.container{
+  @apply absolute flex px-6 py-3 bg-white/15 bottom-[56rem] left-10 gap-4 rounded-2xl backdrop-blur-2xl;
+  z-index: 2;
+}
+
+.text{
+  @apply text-white text-base font-light
+}

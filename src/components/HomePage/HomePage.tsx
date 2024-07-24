@@ -6,9 +6,9 @@ import Carousel from "@/components/HomePage/Carousel";
 const HomePage: FC = () => {
 
   const images = [
-    { src: "/Carousel/img/restaurant.jpeg", alt: "Image 1", title: 'Единение с природой' },
-    { src: "https://picsum.photos/800/400?random=2", alt: "Image 2", title: 'Единение' },
-    { src: "https://picsum.photos/800/400?random=3", alt: "Image 3", title: 'Единение' },
+    { src: "/Carousel/img/restaurant.jpeg", alt: "restaurant", title: 'Единение с природой', mainText: 'Холл отеля', additionalText: 'Зона ресторана' },
+    { src: "/Carousel/img/hall.jpg", alt: "hall", title: 'Приятная атмосфера', mainText: 'Холл отеля', additionalText: 'Коридор' },
+    { src: "/Carousel/img/reception.jpg", alt: "reception", title: 'Комфорт и удобство', mainText: 'Холл отеля', additionalText: 'Ресепшн' },
   ];
 
 
