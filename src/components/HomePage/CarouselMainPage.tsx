@@ -1,6 +1,6 @@
 "use client"
 
-import {useState, FC} from "react";
+import {useState, FC, useEffect, useRef} from "react";
 import styles from "@/styles/carousel.module.scss"
 import Image from "next/image";
 import Placeholder from "@/components/UniversalComponents/Placeholder";
@@ -20,11 +20,13 @@ interface CarouselProps {
 }
 
 
-const Carousel:FC<CarouselProps> = ({ images }) => {
+const CarouselMainPage:FC<CarouselProps> = ({ images }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isPrevHovered, setIsPrevHovered] = useState(false);
   const [isNextHovered, setIsNextHovered] = useState(false);
-
+  const containerRef = useRef<HTMLDivElement>(null);
+  const touchStartXRef = useRef<number | null>(null);
+  const isScrolling = useRef(false);
 
   const handlePrevClick = () => {
     setCurrentIndex((currentIndex - 1 + images.length) % images.length);
@@ -34,8 +36,57 @@ const Carousel:FC<CarouselProps> = ({ images }) => {
     setCurrentIndex((currentIndex + 1) % images.length);
   };
 
+  const handleWheel = (event: WheelEvent) => {
+    if (isScrolling.current) return;
+    isScrolling.current = true;
+
+    if (event.deltaY > 0) {
+      handleNextClick();
+    } else {
+      handlePrevClick();
+    }
+
+    setTimeout(() => {
+      isScrolling.current = false;
+    }, 700); // Устанавливаем задержку для предотвращения частых переключений
+  };
+
+  const handleTouchStart = (event: TouchEvent) => {
+    touchStartXRef.current = event.touches[0].clientX;
+  };
+
+  const handleTouchMove = (event: TouchEvent) => {
+    if (touchStartXRef.current === null) return;
+    const touchEndX = event.touches[0].clientX;
+    if (touchStartXRef.current - touchEndX > 50) {
+      handleNextClick();
+      touchStartXRef.current = null;
+    } else if (touchStartXRef.current - touchEndX < -50) {
+      handlePrevClick();
+      touchStartXRef.current = null;
+    }
+  };
+
+  useEffect(() => {
+    const container = containerRef.current;
+    if (container) {
+      container.addEventListener("wheel", handleWheel, { passive: false });
+      container.addEventListener("touchstart", handleTouchStart);
+      container.addEventListener("touchmove", handleTouchMove);
+    }
+    return () => {
+      if (container) {
+        container.removeEventListener("wheel", handleWheel);
+        container.removeEventListener("touchstart", handleTouchStart);
+        container.removeEventListener("touchmove", handleTouchMove);
+      }
+    };
+  }, [currentIndex]);
+
+
+
   return (
-      <div className={styles.container}>
+      <div className={styles.container} ref={containerRef}>
         <div className={styles.box}>
           <div className={styles.carousel_container} style={{transform: `translateX(-${currentIndex * 100}%)`}}>
             {images.map((image, index) => (
@@ -59,7 +110,7 @@ const Carousel:FC<CarouselProps> = ({ images }) => {
                 onMouseLeave={() => setIsPrevHovered(false)}
             >
               <Image
-                  src={isPrevHovered ? '/Carousel/Active/ArrowLeft.svg' : '/Carousel/ArrowLeft.svg'}
+                  src={isPrevHovered ? '/CarouselMainPage/Active/ArrowLeft.svg' : '/CarouselMainPage/ArrowLeft.svg'}
                   alt='ArrowLeft'
                   width={24}
                   height={24}
@@ -72,7 +123,7 @@ const Carousel:FC<CarouselProps> = ({ images }) => {
                 onMouseLeave={() => setIsNextHovered(false)}
             >
               <Image
-                  src={isNextHovered ? '/Carousel/Active/ArrowRight.svg' : '/Carousel/ArrowRight.svg'}
+                  src={isNextHovered ? '/CarouselMainPage/Active/ArrowRight.svg' : '/CarouselMainPage/ArrowRight.svg'}
                   alt='ArrowRight'
                   width={24}
                   height={24}
@@ -84,4 +135,4 @@ const Carousel:FC<CarouselProps> = ({ images }) => {
   );
 };
 
-export default Carousel
+export default CarouselMainPage;
