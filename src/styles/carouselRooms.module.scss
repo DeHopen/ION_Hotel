@@ -1,0 +1,57 @@
+.carouselContainer {
+  @apply relative flex items-center justify-center w-full;
+}
+
+.imagesContainer {
+  @apply flex flex-row space-x-4 rounded-3xl w-full;
+}
+
+.mainImage {
+  @apply w-832 h-832 rounded-3xl transition-transform;
+}
+
+.image {
+  @apply object-cover rounded-3xl;
+}
+
+.imageCaption {
+  @apply text-gray px-8 py-4 flex flex-col;
+}
+
+.imageCaption div{
+  @apply text-2xl font-normal
+}
+
+.imageCaption span{
+  @apply text-sm
+}
+
+.smallImages {
+  @apply flex flex-row gap-4 ;
+}
+
+.smallImage {
+  @apply w-[25rem] h-[33rem] transition-transform duration-500;
+}
+
+.navigationButtons {
+  @apply absolute inset-0 flex justify-between items-center p-4;
+}
+
+.navButton {
+  @apply text-white bg-black/50 p-2 rounded-full;
+}
+
+.animating {
+  animation: scaleIn 0.5s ease-in-out;
+}
+
+@keyframes scaleIn {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.1);
+  }
+}
+
