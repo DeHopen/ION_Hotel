@@ -1,0 +1,31 @@
+.hero {
+  @apply relative bg-cover bg-center h-screen;
+}
+
+.overlay {
+  @apply absolute inset-0 bg-gradient-radial opacity-50;
+}
+
+.hero-content {
+  @apply relative z-10 flex flex-col items-center justify-center h-full text-white text-center px-4;
+}
+
+.hero-title {
+  @apply text-4xl md:text-6xl font-bold;
+}
+
+.search-bar {
+  @apply mt-8 flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-4;
+}
+
+.search-item {
+  @apply flex items-center space-x-2 bg-blend-color text-black px-4 py-2 rounded-md;
+}
+
+.search-input {
+  @apply border-none focus:ring-0;
+}
+
+.search-button {
+  @apply bg-black text-white px-4 py-2 rounded-md;
+}

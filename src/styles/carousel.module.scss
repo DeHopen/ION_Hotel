@@ -1,0 +1,47 @@
+.container{
+  @apply relative top-24 px-8
+}
+
+.box{
+  @apply overflow-hidden rounded-large h-980;
+}
+
+.carousel_container{
+  @apply flex transition-transform duration-500;
+}
+
+.carousel{
+  @apply relative flex-shrink-0 w-full rounded-large;
+}
+
+.overlay {
+  @apply absolute top-0 left-0 w-full h-full bg-gray;
+  opacity: 0.2;
+  z-index: 1;
+}
+
+.textOverlay{
+  @apply absolute left-28 bottom-[22rem];
+  z-index: 2;
+}
+
+.title{
+  @apply text-white text-8xl w-11/12
+}
+
+.img{
+  @apply w-full h-980 object-cover rounded-large;
+}
+
+.buttons{
+  @apply relative flex justify-end bottom-[59rem] right-8 gap-4
+}
+
+.button1, .button2{
+  @apply px-6 py-3 backdrop-blur-2xl bg-white/15 rounded-2xl;
+  &:hover,
+  &:active{
+    @apply bg-white/40
+  }
+}
+

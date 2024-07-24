@@ -1,0 +1,56 @@
+.header {
+  @apply bg-white fixed w-full z-50 transition-transform duration-300;
+  &.visible {
+    transform: translateY(0);
+  }
+  &.hidden {
+    transform: translateY(-100%);
+  }
+}
+.withShadow{
+  @apply shadow
+}
+
+.headerContent {
+  @apply mx-auto px-4 sm:px-6 lg:px-8;
+}
+
+.headerInner {
+  @apply flex justify-between h-20;
+}
+
+.logo {
+  @apply h-8 w-8;
+}
+
+.navContainer {
+  @apply flex justify-start ml-1 sm:-my-px sm:ml-1 sm:flex sm:space-x-10;
+}
+
+.navLink {
+  @apply text-gray inline-flex items-center px-1 pt-1 text-base font-normal;
+  &:hover,
+  &:active {
+    @apply text-orange-extra;
+  }
+}
+
+.contactButton {
+  @apply hidden gap-1.5 sm:ml-6 sm:flex sm:items-center;
+}
+
+.contactLink {
+  @apply text-gray inline-flex items-center px-1 pt-1 text-base font-normal;
+}
+
+.bookButton {
+  @apply ml-3 bg-gray text-white px-5 py-2.5 rounded-2xl text-base font-normal;
+}
+
+.mainContent {
+  @apply flex-grow;
+}
+
+.footer {
+  @apply bg-gray text-white py-4 text-center z-40;
+}

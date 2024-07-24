@@ -1,0 +1,54 @@
+.menuDropdown {
+  @apply fixed top-24 left-0 right-0 bg-white shadow-lg z-40 py-8 pl-8 rounded-b-3xl;
+  display: flex;
+  justify-content: space-between;
+}
+
+.menuContent {
+  @apply flex justify-between gap-4 w-full;
+}
+
+.menuLeft, .menuRight {
+  @apply flex flex-col;
+
+}
+
+.menuLeft{
+  @apply flex p-3 w-full bg-gray_bg rounded-3xl hover:text-orange-extra
+}
+
+.menuLeft span{
+  @apply text-xl items-start px-5 pt-5
+}
+
+.hotel_img{
+  @apply h-260 w-563 object-cover rounded-2xl
+}
+
+.menuLinks {
+  @apply flex flex-col space-y-5 w-full p-8 bg-gray_bg rounded-3xl justify-center gap-2;
+}
+
+.menuLinks a {
+  @apply text-gray hover:text-orange-extra text-xl;
+}
+
+.menuRight{
+  @apply flex gap-4 w-full
+}
+
+.ski, .inno{
+  @apply flex items-center p-3 bg-gray_bg rounded-3xl hover:text-orange-extra
+}
+
+.ski span, .inno span{
+  @apply p-8 text-xl
+}
+
+.ski_img, .inno_img{
+  @apply h-142 w-281 object-cover rounded-2xl
+}
+
+.close{
+  @apply relative bottom-36 p-8
+}
