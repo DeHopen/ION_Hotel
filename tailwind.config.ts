@@ -36,7 +36,8 @@ const config: Config = {
         'gray': '#3C3937',
         'gray_bg': '#F4F6F5',
         'gray_light': '#F4F6F5',
-        'gray_text_light': '#9B9895'
+        'gray_text_light': '#9B9895',
+        'gray_icon': '#EEF0EF'
       },
       height: {
         '260': '16rem',

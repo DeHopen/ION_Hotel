@@ -1,0 +1,59 @@
+.container {
+  @apply relative px-28  mt-40 mb-32;
+}
+
+.box{
+  @apply flex flex-col md:flex-row justify-between bg-gray_light p-3 rounded-3xl
+}
+
+.textSection {
+  @apply md:w-1/2 mb-8 md:mb-0 p-8;
+}
+
+.textContent {
+  @apply space-y-10 text-gray;
+}
+
+.heading {
+  @apply text-5xl font-normal;
+}
+
+.title{
+  @apply text-xl
+}
+
+.info{
+  @apply flex flex-col gap-8
+}
+
+.address, .phone, .email{
+  @apply flex gap-5 items-center
+}
+
+.icon{
+  @apply flex p-3 bg-gray_icon rounded-full
+}
+
+.content{
+  @apply flex flex-col gap-3
+}
+
+.content span{
+  @apply text-gray_text_light text-base
+}
+
+.content p{
+  @apply text-xl
+}
+
+.content a{
+  @apply text-xl text-orange-extra
+}
+
+.image {
+  @apply rounded-2xl object-cover w-816 h-816;
+}
+
+.placeholder{
+  @apply absolute left-[62rem] top-[47.5rem]
+}

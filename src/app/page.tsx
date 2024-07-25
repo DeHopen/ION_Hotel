@@ -3,6 +3,7 @@ import HotelRooms from "@/components/HotelRooms/HotelRooms";
 import InnopolisPage from "@/components/InnopolisPage/InnopolisPage";
 import SkiPage from "@/components/SkiPage/SkiPage";
 import Services from "@/components/Services/Services";
+import InfoHotel from "@/components/InfoHotel/InfoHotel";
 
 export default function Home() {
   return (
@@ -12,6 +13,7 @@ export default function Home() {
       <InnopolisPage/>
       <SkiPage/>
       <Services/>
+      <InfoHotel/>
     </main>
   );
 }
