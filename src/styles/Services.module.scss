@@ -1,0 +1,35 @@
+.container{
+  @apply w-full px-28 mt-40 text-gray
+}
+
+.header{
+  @apply flex justify-between items-center mb-8
+}
+
+.title{
+  @apply text-5xl font-normal
+}
+
+.content_box{
+  @apply flex justify-between gap-8 w-full
+}
+
+.content{
+  @apply rounded-3xl p-3 bg-gray_light w-full
+}
+
+.img{
+  @apply h-512 object-cover rounded-2xl
+}
+
+.text{
+  @apply p-4
+}
+
+.mainText{
+  @apply text-2xl font-normal mt-4
+}
+
+.description{
+  @apply mt-2 text-gray_text_light text-xl
+}
