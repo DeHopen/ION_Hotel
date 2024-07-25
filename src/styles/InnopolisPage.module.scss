@@ -11,7 +11,7 @@
 }
 
 .main {
-  @apply flex flex-col lg:flex-row w-full gap-14 bg-gray_light p-3 rounded-3xl;
+  @apply flex flex-col lg:flex-row w-full bg-gray_light p-3 rounded-3xl;
 }
 
 .image {
@@ -19,11 +19,11 @@
 }
 
 .content {
-  @apply flex w-1/2 flex-col p-14;
+  @apply flex flex-col w-1/2 p-14;
 }
 
 .heading {
-  @apply text-5xl font-normal mb-6;
+  @apply text-5xl/[48px] font-normal mb-6;
 }
 
 .item {
