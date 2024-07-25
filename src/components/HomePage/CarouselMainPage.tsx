@@ -26,7 +26,6 @@ const CarouselMainPage:FC<CarouselProps> = ({ images }) => {
   const [isNextHovered, setIsNextHovered] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const touchStartXRef = useRef<number | null>(null);
-  const isScrolling = useRef(false);
 
   const handlePrevClick = () => {
     setCurrentIndex((currentIndex - 1 + images.length) % images.length);
@@ -34,21 +33,6 @@ const CarouselMainPage:FC<CarouselProps> = ({ images }) => {
 
   const handleNextClick = () => {
     setCurrentIndex((currentIndex + 1) % images.length);
-  };
-
-  const handleWheel = (event: WheelEvent) => {
-    if (isScrolling.current) return;
-    isScrolling.current = true;
-
-    if (event.deltaY > 0) {
-      handleNextClick();
-    } else {
-      handlePrevClick();
-    }
-
-    setTimeout(() => {
-      isScrolling.current = false;
-    }, 700); // Устанавливаем задержку для предотвращения частых переключений
   };
 
   const handleTouchStart = (event: TouchEvent) => {
@@ -70,13 +54,11 @@ const CarouselMainPage:FC<CarouselProps> = ({ images }) => {
   useEffect(() => {
     const container = containerRef.current;
     if (container) {
-      container.addEventListener("wheel", handleWheel, { passive: false });
       container.addEventListener("touchstart", handleTouchStart);
       container.addEventListener("touchmove", handleTouchMove);
     }
     return () => {
       if (container) {
-        container.removeEventListener("wheel", handleWheel);
         container.removeEventListener("touchstart", handleTouchStart);
         container.removeEventListener("touchmove", handleTouchMove);
       }

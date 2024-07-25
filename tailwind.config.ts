@@ -15,7 +15,8 @@ const config: Config = {
       },
       spacing: {
         '128': '32rem',
-        '832': '52rem'
+        '832': '52rem',
+        '816': '51rem'
       },
       screens: {
         'sm': '640px',
@@ -34,7 +35,8 @@ const config: Config = {
         'black': '#000',
         'gray': '#3C3937',
         'gray_bg': '#F4F6F5',
-        'gray_light': '#F4F6F5'
+        'gray_light': '#F4F6F5',
+        'gray_text_light': '#9B9895'
       },
       height: {
         '260': '16rem',

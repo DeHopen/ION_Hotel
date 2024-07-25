@@ -21,10 +21,10 @@ const HotelRooms: FC = () => {
 
 
   return (
-      <div className="flex justify-center mt-48 mb-48">
+      <div className="flex justify-center mt-52 mb-40 w-full px-28">
         <main className={kanitCyrillic.className}>
           <div className='flex flex-row justify-between items-center mb-8'>
-            <h1 className="text-3xl font-normal text-gray">Номера и цены</h1>
+            <h1 className="text-5xl font-normal text-gray">Номера и цены</h1>
             <div className={nunitoSans.className}>
               <div className='flex text-orange-extra gap-3 text-xl font-light'>
                 <span>Все номера</span>

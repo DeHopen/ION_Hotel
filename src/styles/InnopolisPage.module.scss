@@ -1,0 +1,43 @@
+.container {
+  @apply relative flex flex-col justify-center w-full text-gray px-28;
+}
+
+.header {
+  @apply w-full mb-8;
+}
+
+.title {
+  @apply text-5xl text-start font-normal ;
+}
+
+.main {
+  @apply flex flex-col lg:flex-row w-full gap-14 bg-gray_light p-3 rounded-3xl;
+}
+
+.image {
+  @apply rounded-2xl w-816 h-816 object-cover;
+}
+
+.content {
+  @apply flex flex-col p-14;
+}
+
+.heading {
+  @apply text-5xl font-normal mb-6;
+}
+
+.item {
+  @apply space-y-6;
+}
+
+.subheading {
+  @apply text-base text-gray_text_light font-light ;
+}
+
+.description {
+  @apply text-gray text-xl;
+}
+
+.link {
+  @apply flex absolute top-[52rem] text-xl text-orange-extra gap-3;
+}

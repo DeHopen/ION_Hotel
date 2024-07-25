@@ -3,11 +3,11 @@
 }
 
 .imagesContainer {
-  @apply flex flex-row space-x-4 rounded-3xl w-full;
+  @apply flex flex-row space-x-6 rounded-3xl w-full;
 }
 
 .mainImage {
-  @apply rounded-3xl transition-transform;
+  @apply rounded-3xl transition-transform w-full;
 }
 
 .textContainer {
@@ -15,7 +15,7 @@
 }
 
 .main_image {
-  @apply object-cover w-832 h-832  rounded-3xl;
+  @apply object-cover w-832 h-832 rounded-3xl;
 }
 
 .imageCaption {
@@ -31,15 +31,15 @@
 }
 
 .smallImages {
-  @apply flex flex-row gap-4;
+  @apply flex flex-row gap-6 w-full;
 }
 
 .smallImage {
-  @apply transition-transform duration-500;
+  @apply transition-transform duration-500 ;
 }
 
 .small_image{
-  @apply object-cover rounded-3xl w-[25rem] h-[33rem]
+  @apply object-cover rounded-3xl h-[33rem] w-[25rem]
 }
 
 .navigationButtons {
