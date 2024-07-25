@@ -2,6 +2,7 @@ import Image from 'next/image';
 import styles from '@/styles/InnopolisPage.module.scss';
 import {kanitCyrillic} from '@/styles/fonts/fonts'
 import Link from "next/link";
+import Placeholder from "@/components/UniversalComponents/Placeholder";
 
 const InnopolisPage = () => {
   const descriptions = [
@@ -10,6 +11,11 @@ const InnopolisPage = () => {
     { title: 'Будущее на старте', description: 'В Иннополисе начали работать Центр обработки данных «Атомдата-Иннополис», технопарк в сфере высоких технологий «ИнноПарк».' },
     { title: 'Университет Иннополис', description: '100% выпускников трудоустраиваются в ведущие IT-компании или открывают свои стартапы.' },
   ];
+  const PlaceholderText =
+    {
+      mainText: 'Иннополис',
+      additionalText: 'Зона ресторана'
+    }
 
   return (
       <div className={styles.container}>
@@ -38,9 +44,11 @@ const InnopolisPage = () => {
               <span>Подробнее</span>
               <Image src='/RoomPage/arrow_orange.svg' alt='arrow' width={24} height={24}/>
             </Link>
-
           </div>
         </main>
+        <div className={styles.placeholder}>
+          <Placeholder mainText={PlaceholderText.mainText} additionalText={PlaceholderText.additionalText}/>
+        </div>
       </div>
   );
 };

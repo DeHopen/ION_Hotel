@@ -75,7 +75,9 @@ const CarouselMainPage:FC<CarouselProps> = ({ images }) => {
                 <div key={index} className={styles.carousel}>
                   <img src={image.src} alt={image.alt} className={styles.img}/>
                   <div className={styles.overlay}></div>
-                  <Placeholder mainText={image.mainText} additionalText={image.additionalText}/>
+                  <div className={styles.placeholder}>
+                    <Placeholder mainText={image.mainText} additionalText={image.additionalText}/>
+                  </div>
                   <div className={styles.textOverlay}>
                     <div className={kanitCyrillic.className}>
                       <h2 className={styles.title}>{image.title}</h2>

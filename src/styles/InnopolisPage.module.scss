@@ -41,3 +41,7 @@
 .link {
   @apply flex absolute top-[52rem] text-xl text-orange-extra gap-3;
 }
+
+.placeholder{
+  @apply absolute top-[52rem] left-40
+}
