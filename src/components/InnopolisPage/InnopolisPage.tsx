@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import styles from '@/styles/InnopolisPage.module.scss';
 import {kanitCyrillic} from '@/styles/fonts/fonts'
+import Link from "next/link";
 
 const InnopolisPage = () => {
   const descriptions = [
@@ -33,10 +34,10 @@ const InnopolisPage = () => {
                   </li>
               ))}
             </ul>
-            <div className={styles.link}>
-              <a href="/more-details" >Подробнее</a>
+            <Link href='#' className={styles.link}>
+              <span>Подробнее</span>
               <Image src='/RoomPage/arrow_orange.svg' alt='arrow' width={24} height={24}/>
-            </div>
+            </Link>
 
           </div>
         </main>
