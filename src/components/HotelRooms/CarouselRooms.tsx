@@ -2,6 +2,8 @@
 
 import {FC, useState} from 'react';
 import styles from '@/styles/carouselRooms.module.scss';
+import {nunitoSans} from '@/styles/fonts/fonts'
+import Image from "next/image";
 
 interface Image {
   src: string;
@@ -39,11 +41,11 @@ const CarouselRooms:FC<RoomCarouselProps> = ({images, roomName, price}) => {
         <div className={styles.imagesContainer}>
           {/* Основное изображение */}
           <div className={styles.mainImage}>
-            <div className={styles.imgAndText}>
+            <div className={styles.textContainer}>
               <img
                   src={images[current].src}
                   alt={images[current].alt}
-                  className={styles.image}
+                  className={styles.main_image}
               />
               <div className={styles.imageCaption}>
                 <div>{roomName}</div>
@@ -63,7 +65,7 @@ const CarouselRooms:FC<RoomCarouselProps> = ({images, roomName, price}) => {
                   <img
                       src={images[index].src}
                       alt={images[index].alt}
-                      className={styles.image}
+                      className={styles.small_image}
                   />
                 </div>
             ))}
@@ -73,6 +75,18 @@ const CarouselRooms:FC<RoomCarouselProps> = ({images, roomName, price}) => {
         <div className={styles.navigationButtons}>
           <button onClick={prevImage} className={styles.navButton}>‹</button>
           <button onClick={nextImage} className={styles.navButton}>›</button>
+        </div>
+
+        <div className={nunitoSans.className}>
+          <div className={styles.anotherRoomButton}>
+            <a href="/another-room" className={styles.buttonLink}>
+              <img className={styles.img_room} src="/Small_room/1.jpg" alt=""/>
+              <div className={styles.textAndArrow}>
+                <span>Малый номер</span>
+                <Image src='/RoomPage/arrow_gray.svg' alt='arrow' width={24} height={24}/>
+              </div>
+            </a>
+          </div>
         </div>
       </div>
   );

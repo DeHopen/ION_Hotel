@@ -7,31 +7,39 @@
 }
 
 .mainImage {
-  @apply w-832 h-832 rounded-3xl transition-transform;
+  @apply rounded-3xl transition-transform;
 }
 
-.image {
-  @apply object-cover rounded-3xl;
+.textContainer {
+  @apply bg-gray_light rounded-3xl;
+}
+
+.main_image {
+  @apply object-cover w-832 h-832  rounded-3xl;
 }
 
 .imageCaption {
   @apply text-gray px-8 py-4 flex flex-col;
 }
 
-.imageCaption div{
+.imageCaption div {
   @apply text-2xl font-normal
 }
 
-.imageCaption span{
+.imageCaption span {
   @apply text-sm
 }
 
 .smallImages {
-  @apply flex flex-row gap-4 ;
+  @apply flex flex-row gap-4;
 }
 
 .smallImage {
-  @apply w-[25rem] h-[33rem] transition-transform duration-500;
+  @apply transition-transform duration-500;
+}
+
+.small_image{
+  @apply object-cover rounded-3xl w-[25rem] h-[33rem]
 }
 
 .navigationButtons {
@@ -46,6 +54,22 @@
   animation: scaleIn 0.5s ease-in-out;
 }
 
+.anotherRoomButton {
+  @apply absolute bottom-0 right-0;
+}
+
+.buttonLink {
+  @apply flex items-center text-gray pr-6 text-xl bg-gray_light gap-6 rounded-3xl transition-colors;
+}
+
+.img_room{
+  @apply w-28 h-28 rounded-3xl
+}
+
+.textAndArrow{
+  @apply flex gap-10
+}
+
 @keyframes scaleIn {
   0% {
     transform: scale(1);
@@ -54,4 +78,3 @@
     transform: scale(1.1);
   }
 }
-
