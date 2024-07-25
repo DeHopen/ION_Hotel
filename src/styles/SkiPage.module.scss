@@ -1,0 +1,35 @@
+.Container{
+  @apply relative flex flex-row justify-between text-gray px-28 mt-40 mb-2 gap-6
+}
+
+.title{
+  @apply font-normal mb-2 text-5xl
+}
+
+.content{
+  @apply flex flex-col p-12 w-full bg-gray_light rounded-3xl gap-6
+}
+
+.description{
+  @apply text-lg
+}
+
+.link {
+  @apply flex absolute top-[37rem] text-xl text-orange-extra gap-3;
+}
+
+.images_col{
+  @apply w-full flex flex-col gap-6
+}
+
+.img{
+  @apply w-[34rem] h-[20rem] object-cover rounded-3xl
+}
+
+.right_img{
+  @apply w-full
+}
+
+.ski_img{
+  @apply w-[34rem] h-[41.5rem] object-cover object-right rounded-3xl
+}

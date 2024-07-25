@@ -1,6 +1,7 @@
 import HomePage from "@/components/HomePage/HomePage";
 import HotelRooms from "@/components/HotelRooms/HotelRooms";
 import InnopolisPage from "@/components/InnopolisPage/InnopolisPage";
+import SkiPage from "@/components/SkiPage/SkiPage";
 
 export default function Home() {
   return (
@@ -8,6 +9,7 @@ export default function Home() {
       <HomePage/>
       <HotelRooms/>
       <InnopolisPage/>
+      <SkiPage/>
     </main>
   );
 }
