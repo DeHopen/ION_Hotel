@@ -1,5 +1,5 @@
 .menuDropdown {
-  @apply fixed top-24 left-0 right-0 bg-white shadow-lg z-40 py-8 pl-8 rounded-b-3xl;
+  @apply fixed top-20 left-0 right-0 bg-white shadow-lg py-8 pl-8 rounded-b-3xl z-30;
   display: flex;
   justify-content: space-between;
 }

@@ -1,5 +1,5 @@
 .header {
-  @apply bg-white fixed w-full z-50 transition-transform duration-300;
+  @apply bg-white fixed w-full transition-transform duration-300 z-50;
   &.visible {
     transform: translateY(0);
   }
@@ -10,6 +10,11 @@
 .withShadow{
   @apply shadow
 }
+
+.overlay {
+  @apply fixed top-0 left-0 w-full h-full bg-gray_overlay/40 z-20
+}
+
 
 .headerContent {
   @apply mx-auto px-4 sm:px-6 lg:px-8;
@@ -45,10 +50,6 @@
 
 .bookButton {
   @apply ml-3 bg-gray text-white px-5 py-2.5 rounded-2xl text-base font-normal;
-}
-
-.mainContent {
-  @apply flex-grow;
 }
 
 .footer {
