@@ -1,0 +1,74 @@
+.container {
+  @apply flex flex-row p-3 bg-gray_light rounded-3xl w-full;
+}
+
+.mainImg {
+  @apply relative w-1/2 overflow-hidden;
+}
+
+.imgBig {
+  @apply object-cover w-816 h-816 rounded-2xl;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.content {
+  @apply flex flex-col w-1/2 p-14 justify-between;
+}
+
+.text{
+  @apply flex flex-col text-gray gap-5
+}
+
+.text h3{
+  @apply text-5xl
+}
+
+.text p{
+  @apply text-xl text-gray_text_light
+}
+
+.link {
+  @apply flex top-[37rem] text-xl text-orange-extra gap-3 mt-4;
+}
+
+.smallImages {
+  @apply flex w-full overflow-x-auto gap-4 rounded-2xl;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.smallImages::-webkit-scrollbar {
+  display: none;
+}
+
+.thumbnail {
+  @apply flex-none w-64 h-64 cursor-pointer rounded-2xl;
+
+}
+
+.img {
+  @apply object-cover w-full h-full rounded-2xl;
+}
+
+.selectedImg {
+  @apply border-2 border-solid p-1 rounded-3xl border-orange-extra;
+}
+
+.bokehLeft, .bokehRight {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 50px;
+  pointer-events: none;
+}
+
+.bokehLeft {
+  left: 0;
+  background: linear-gradient(to right, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
+}
+
+.bokehRight {
+  right: 0;
+  background: linear-gradient(to left, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
+}
