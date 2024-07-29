@@ -54,6 +54,10 @@
   @apply rounded-2xl object-cover w-816 h-816;
 }
 
+.imageSection{
+  @apply relative
+}
+
 .placeholder{
-  @apply absolute left-[62rem] top-[47.5rem]
+  @apply absolute left-10 top-[46rem]
 }

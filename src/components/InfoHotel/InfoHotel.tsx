@@ -82,10 +82,11 @@ const InfoHotel: FC = () => {
                 height={mainImg.height}
                 className={styles.image}
             />
+            <div className={styles.placeholder}>
+              <Placeholder mainText={placeholder.mainText} additionalText={placeholder.additionalText}/>
+            </div>
           </div>
-          <div className={styles.placeholder}>
-            <Placeholder mainText={placeholder.mainText} additionalText={placeholder.additionalText}/>
-          </div>
+
         </div>
 
       </div>
