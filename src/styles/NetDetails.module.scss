@@ -31,8 +31,12 @@
   @apply flex top-[37rem] text-xl text-orange-extra gap-3 mt-4;
 }
 
+.smallImagesWrapper{
+  @apply relative
+}
+
 .smallImages {
-  @apply flex w-full overflow-x-auto gap-4 rounded-2xl;
+  @apply relative flex w-full overflow-x-auto gap-4 rounded-2xl;
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
   -ms-overflow-style: none;
@@ -59,16 +63,19 @@
   position: absolute;
   top: 0;
   bottom: 0;
-  width: 50px;
+  width: 77px;
   pointer-events: none;
+  z-index: 1;
+  transition: opacity 0.5s ease-in-out;
 }
 
 .bokehLeft {
   left: 0;
-  background: linear-gradient(to right, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
+  background: linear-gradient(to right, rgba(244, 246, 245, 1), rgba(244, 246, 245, 0));
 }
 
+
 .bokehRight {
-  right: 0;
-  background: linear-gradient(to left, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
+  right: -1px;
+  background: linear-gradient(to left, rgba(244, 246, 245, 1), rgba(244, 246, 245, 0));
 }
