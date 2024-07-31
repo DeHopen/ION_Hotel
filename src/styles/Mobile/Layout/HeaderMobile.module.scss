@@ -1,0 +1,29 @@
+.header {
+  @apply bg-white fixed w-full transition-transform duration-300 z-50;
+  &.visible {
+    transform: translateY(0);
+  }
+  &.hidden {
+    transform: translateY(-100%);
+  }
+}
+
+.withShadow{
+  @apply shadow
+}
+
+.container{
+  @apply flex flex-row justify-between items-center p-4
+}
+
+.overlay {
+  @apply fixed top-0 left-0 w-full h-full bg-gray_overlay/40 z-20
+}
+
+.menu{
+
+}
+
+.contactLink{
+  @apply p-3 bg-gray rounded-xl
+}

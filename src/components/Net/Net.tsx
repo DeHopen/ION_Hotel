@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import EnterpriseDetails from './EnterpriseDetails';
-import styles from "@/styles/Net.module.scss";
+import styles from "@/styles/Net/Net.module.scss";
 import Image from "next/image";
 import {kanitCyrillic} from '@/styles/fonts/fonts'
 

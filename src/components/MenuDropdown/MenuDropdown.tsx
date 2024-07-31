@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import styles from '@/styles/MenuDropdown.module.scss';
+import styles from '@/styles/Layout/MenuDropdown.module.scss';
 import Image from "next/image";
 import {useDispatch} from "react-redux";
 import {setShowMenu} from "@/store/slices/layoutSlice";
