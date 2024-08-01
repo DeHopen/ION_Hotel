@@ -2,7 +2,7 @@
 
 import { FC, ReactNode} from 'react';
 import PropTypes from 'prop-types';
-import styles from '@/styles/Layout/Header.module.scss';
+import styles from '@/styles/Desktop/Layout/Header.module.scss';
 import Header from "@/components/Layout/Header";
 import Footer from "@/components/Layout/Footer";
 import { useMediaQuery } from 'react-responsive';

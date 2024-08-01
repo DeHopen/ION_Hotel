@@ -1,5 +1,5 @@
 import {FC} from 'react';
-import styles from '@/styles/placeholder.module.scss'
+import styles from '@/styles/UniversalComponents/placeholder.module.scss'
 
 interface PlaceholderProps {
   mainText: string,

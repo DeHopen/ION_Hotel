@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, FC, useEffect, useRef } from "react";
-import styles from "@/styles/carousel.module.scss"
+import styles from "@/styles/Desktop/MainPage/carousel.module.scss"
 import Image from "next/image";
 import Placeholder from "@/components/UniversalComponents/Placeholder";
 import { kanitCyrillic } from '@/styles/fonts/fonts'

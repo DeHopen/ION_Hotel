@@ -1,5 +1,5 @@
 import {FC, useEffect, useState} from 'react';
-import styles from "@/styles/Layout/Header.module.scss";
+import styles from "@/styles/Desktop/Layout/Header.module.scss";
 import MenuDropdown from "@/components/MenuDropdown/MenuDropdown";
 import {useDispatch, useSelector} from "react-redux";
 import {RootState} from "@/store/store";

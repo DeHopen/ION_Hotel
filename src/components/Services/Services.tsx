@@ -2,7 +2,7 @@
 import Image from 'next/image';
 import {nunitoSans, kanitCyrillic} from "@/styles/fonts/fonts";
 import Link from "next/link";
-import styles from '@/styles/Services.module.scss'
+import styles from '@/styles/Desktop/Services/Services.module.scss'
 
 const services = [
   {

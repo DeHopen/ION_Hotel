@@ -7,7 +7,7 @@
 }
 
 .title {
-  @apply text-5xl text-start font-normal ;
+  @apply text-main text-start font-normal ;
 }
 
 .main {
@@ -23,7 +23,7 @@
 }
 
 .heading {
-  @apply text-5xl/[48px] font-normal mb-6;
+  @apply text-main font-normal mb-6;
 }
 
 .item {

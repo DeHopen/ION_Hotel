@@ -1,7 +1,7 @@
 "use client"
 
 import {FC, useState} from 'react';
-import styles from '@/styles/carouselRooms.module.scss';
+import styles from '@/styles/Desktop/HotelRooms/carouselRooms.module.scss';
 import {nunitoSans} from '@/styles/fonts/fonts'
 import Image from "next/image";
 

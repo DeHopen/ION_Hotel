@@ -1,6 +1,6 @@
 import {FC} from 'react';
 import Image from 'next/image';
-import styles from '@/styles/InfoHotel.module.scss';
+import styles from '@/styles/Desktop/InfoHotel/InfoHotel.module.scss';
 import {kanitCyrillic} from '@/styles/fonts/fonts'
 import Placeholder from "@/components/UniversalComponents/Placeholder";
 

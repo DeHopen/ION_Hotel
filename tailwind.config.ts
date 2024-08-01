@@ -52,6 +52,10 @@ const config: Config = {
       },
       borderRadius: {
         'large': '32px'
+      },
+      fontSize: {
+        main: ['40px', '48px'],
+        h2: ['28px', '36px'],
       }
     },
   },

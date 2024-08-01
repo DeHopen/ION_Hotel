@@ -1,6 +1,6 @@
 import React from 'react';
 import Image from "next/image";
-import styles from '@/styles/SkiPage/SkiPage.module.scss'
+import styles from '@/styles/Desktop/SkiPage/SkiPage.module.scss'
 import Link from "next/link";
 import {kanitCyrillic} from '@/styles/fonts/fonts'
 

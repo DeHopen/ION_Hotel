@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import styles from '@/styles/Net/NetDetails.module.scss';
+import styles from '@/styles/Desktop/Net/NetDetails.module.scss';
 import Image from 'next/image';
 import Link from 'next/link';
 import { kanitCyrillic } from '@/styles/fonts/fonts';
