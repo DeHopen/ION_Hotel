@@ -1,0 +1,29 @@
+.Container {
+  @apply relative flex flex-col justify-between text-gray px-4 mt-16 gap-6
+}
+
+.title {
+  @apply font-normal mb-2 text-main
+}
+
+.content {
+  @apply flex flex-col w-full bg-gray_light rounded-3xl
+}
+
+.text {
+  @apply flex flex-col gap-6 p-8
+}
+
+.description {
+  @apply text-base
+}
+
+.link {
+  @apply flex text-xl font-light text-orange-extra gap-3;
+}
+
+.carousel {
+  @apply p-4 pb-2
+}
+
+

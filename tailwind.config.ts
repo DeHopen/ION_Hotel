@@ -1,4 +1,4 @@
-import type { Config } from "tailwindcss";
+import type {Config} from "tailwindcss";
 
 const config: Config = {
   content: [
@@ -11,7 +11,7 @@ const config: Config = {
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+            "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
       spacing: {
         '512': '32rem',
@@ -43,7 +43,8 @@ const config: Config = {
       height: {
         '260': '16rem',
         '142': '9rem',
-        '980': '61rem'
+        '980': '61rem',
+        '420': '26rem',
       },
       width: {
         '563': '35rem',
