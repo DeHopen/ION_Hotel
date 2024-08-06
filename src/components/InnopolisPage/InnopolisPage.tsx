@@ -8,26 +8,39 @@ import Placeholder from "@/components/UniversalComponents/Placeholder";
 import {useMediaQuery} from "react-responsive";
 import InnopolisPageMobile from "@/components/InnopolisPage/Mobile/InnopolisPageMobile";
 
-const Innopolis = () => {
-  const descriptions = [
-    { title: 'Функциональная архитектура', description: 'Генеральный проект Иннополиса разработал планировщик Сингарупа Лиу Тай Кер. При строительстве заложили капсулу с посланием будущим жителям.' },
-    { title: 'Университет Иннополис', description: '100% выпускников трудоустраиваются в ведущие IT-компании или открывают свои стартапы.' },
-    { title: 'Будущее на старте', description: 'В Иннополисе начали работать Центр обработки данных «Атомдата-Иннополис», технопарк в сфере высоких технологий «ИнноПарк».' },
-    { title: 'Университет Иннополис', description: '100% выпускников трудоустраиваются в ведущие IT-компании или открывают свои стартапы.' },
-  ];
-  const PlaceholderText =
+const descriptions = [
   {
-    mainText: 'Иннополис',
-    additionalText: 'Зона ресторана'
-  }
+    title: 'Функциональная архитектура',
+    description: 'Генеральный проект Иннополиса разработал планировщик Сингарупа Лиу Тай Кер. При строительстве заложили капсулу с посланием будущим жителям.'
+  },
+  {
+    title: 'Университет Иннополис',
+    description: '100% выпускников трудоустраиваются в ведущие IT-компании или открывают свои стартапы.'
+  },
+  {
+    title: 'Будущее на старте',
+    description: 'В Иннополисе начали работать Центр обработки данных «Атомдата-Иннополис», технопарк в сфере высоких технологий «ИнноПарк».'
+  },
+  {
+    title: 'Университет Иннополис',
+    description: '100% выпускников трудоустраиваются в ведущие IT-компании или открывают свои стартапы.'
+  },
+];
+const PlaceholderText =
+    {
+      mainText: 'Иннополис',
+      additionalText: 'Зона ресторана'
+    }
 
-  const isMobile = useMediaQuery({ maxWidth: 768 });
+const Innopolis = () => {
+
+  const isMobile = useMediaQuery({maxWidth: 768});
 
   return (
       <>
-        {isMobile ?(
+        {isMobile ? (
             <InnopolisPageMobile PlaceholderText={PlaceholderText} descriptions={descriptions}/>
-        ):(
+        ) : (
             <div className={styles.container}>
               <header className={styles.header}>
                 <div className={kanitCyrillic.className}>
@@ -36,7 +49,8 @@ const Innopolis = () => {
               </header>
               <main className={styles.main}>
                 <div className={styles.imageContainer}>
-                  <Image src="/InnopolisPage/Innopolis.jpeg" alt="Иннополис" width={962} height={842} className={styles.image}/>
+                  <Image src="/InnopolisPage/Innopolis.jpeg" alt="Иннополис" width={962} height={842}
+                         className={styles.image}/>
                 </div>
                 <div className={styles.content}>
                   <div className={kanitCyrillic.className}>

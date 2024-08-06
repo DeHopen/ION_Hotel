@@ -7,13 +7,13 @@ import Placeholder from "@/components/UniversalComponents/Placeholder";
 
 
 interface InnopolisPageMobileProps {
-  PlaceholderText:{
+  PlaceholderText: {
     mainText: string,
-    additionalText:string,
+    additionalText: string,
   }
-  descriptions:{
+  descriptions: {
     title: string,
-    description:string,
+    description: string,
   }[]
 }
 
@@ -54,7 +54,6 @@ const InnopolisPageMobile: FC<InnopolisPageMobileProps> = ({PlaceholderText, des
             </Link>
           </div>
         </main>
-
       </div>
   );
 };

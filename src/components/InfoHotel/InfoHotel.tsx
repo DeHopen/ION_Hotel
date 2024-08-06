@@ -1,8 +1,12 @@
+'use client'
+
 import {FC} from 'react';
 import Image from 'next/image';
 import styles from '@/styles/Desktop/InfoHotel/InfoHotel.module.scss';
 import {kanitCyrillic} from '@/styles/fonts/fonts'
 import Placeholder from "@/components/UniversalComponents/Placeholder";
+import {useMediaQuery} from "react-responsive";
+import InfoHotelMobile from "@/components/InfoHotel/Mobile/InfoHotelMobile";
 
 const content = [
   {
@@ -29,67 +33,74 @@ const placeholder = {
   additionalText: 'Отель',
 }
 
-const InfoHotel: FC = () => {
-  return (
-      <div className={styles.container}>
-        <div className={styles.box}>
-          <div className={styles.textSection}>
-            {content.map((item, index) => (
-                <div key={index} className={styles.textContent}>
-                  <div className={kanitCyrillic.className}>
-                    <h1 className={styles.heading}>{item.heading}</h1>
-                  </div>
-                  <p className={styles.title}>{item.description.title}</p>
-                  <div className={styles.info}>
-                    <p className={styles.address}>
-                      <div className={styles.icon}>
-                        <Image src='/InfoHotel/address.svg' alt='address' width={28} height={28}/>
-                      </div>
-                      <div className={styles.content}>
-                        <span>Адрес:</span>
-                        <p>{item.description.address}</p>
-                        <a href='#'>Как проехать?</a>
-                      </div>
-                    </p>
-                    <p className={styles.phone}>
-                      <div className={styles.icon}>
-                        <Image src='/InfoHotel/phone.svg' alt='phone' width={28} height={28}/>
-                      </div>
-                      <div className={styles.content}>
-                        <span>Телефон для бронирования:</span>
-                        <p>{item.description.phone}</p>
-                      </div>
-                    </p>
-                    <p className={styles.email}>
-                      <div className={styles.icon}>
-                        <Image src='/InfoHotel/email.svg' alt='email' width={28} height={28}/>
-                      </div>
-                      <div className={styles.content}>
-                        <span>E-mail:</span>
-                        <p>{item.description.email}</p>
-                      </div>
-                    </p>
-                  </div>
-                </div>
-            ))}
-          </div>
 
-          <div className={styles.imageSection}>
-            <Image
-                src={mainImg.img}
-                alt="Building"
-                width={mainImg.width}
-                height={mainImg.height}
-                className={styles.image}
-            />
-            <div className={styles.placeholder}>
-              <Placeholder mainText={placeholder.mainText} additionalText={placeholder.additionalText}/>
+const InfoHotel: FC = () => {
+
+  const isMobile = useMediaQuery({ maxWidth: 768 });
+
+  return (
+      <>
+      {isMobile ?(
+          <InfoHotelMobile content={content} mainImg={mainImg} placeholder={placeholder}/>
+      ):(
+          <div className={styles.container}>
+            <div className={styles.box}>
+              <div className={styles.textSection}>
+                {content.map((item, index) => (
+                    <div key={index} className={styles.textContent}>
+                      <div className={kanitCyrillic.className}>
+                        <h1 className={styles.heading}>{item.heading}</h1>
+                      </div>
+                      <p className={styles.title}>{item.description.title}</p>
+                      <div className={styles.info}>
+                        <p className={styles.address}>
+                          <div className={styles.icon}>
+                            <Image src='/InfoHotel/address.svg' alt='address' width={28} height={28}/>
+                          </div>
+                          <div className={styles.content}>
+                            <span>Адрес:</span>
+                            <p>{item.description.address}</p>
+                            <a href='#'>Как проехать?</a>
+                          </div>
+                        </p>
+                        <p className={styles.phone}>
+                          <div className={styles.icon}>
+                            <Image src='/InfoHotel/phone.svg' alt='phone' width={28} height={28}/>
+                          </div>
+                          <div className={styles.content}>
+                            <span>Телефон для бронирования:</span>
+                            <p>{item.description.phone}</p>
+                          </div>
+                        </p>
+                        <p className={styles.email}>
+                          <div className={styles.icon}>
+                            <Image src='/InfoHotel/email.svg' alt='email' width={28} height={28}/>
+                          </div>
+                          <div className={styles.content}>
+                            <span>E-mail:</span>
+                            <p>{item.description.email}</p>
+                          </div>
+                        </p>
+                      </div>
+                    </div>
+                ))}
+              </div>
+              <div className={styles.imageSection}>
+                <Image
+                    src={mainImg.img}
+                    alt="Building"
+                    width={mainImg.width}
+                    height={mainImg.height}
+                    className={styles.image}
+                />
+                <div className={styles.placeholder}>
+                  <Placeholder mainText={placeholder.mainText} additionalText={placeholder.additionalText}/>
+                </div>
+              </div>
             </div>
           </div>
-
-        </div>
-
-      </div>
+      )};
+      </>
   );
 };
 

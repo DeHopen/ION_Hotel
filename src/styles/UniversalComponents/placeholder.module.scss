@@ -1,8 +1,8 @@
-.container{
-  @apply flex px-6 py-3 bg-white/15 gap-4 rounded-2xl backdrop-blur-2xl;
+.container {
+  @apply flex px-6 py-3 bg-white/15 gap-4 rounded-2xl backdrop-blur-2xl w-full justify-center;
   z-index: 2;
 }
 
-.text{
+.text {
   @apply text-white text-base font-light
 }
