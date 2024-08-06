@@ -1,35 +1,39 @@
-.container{
+.container {
   @apply w-full px-28 mt-40 text-gray
 }
 
-.header{
+.header {
   @apply flex justify-between items-center mb-8
 }
 
-.title{
+.title {
   @apply text-main font-normal
 }
 
-.content_box{
+.content_box {
   @apply flex justify-between gap-8 w-full
 }
 
-.content{
+.content {
   @apply rounded-3xl p-3 bg-gray_light w-full
 }
 
-.img{
+.img {
   @apply h-512 object-cover rounded-2xl
 }
 
-.text{
+.text {
   @apply p-4
 }
 
-.mainText{
+.mainText {
   @apply text-2xl font-normal mt-4
 }
 
-.description{
+.description {
   @apply mt-2 text-gray_text_light text-xl
+}
+
+.link {
+  @apply flex text-orange-extra gap-3 text-xl font-light
 }

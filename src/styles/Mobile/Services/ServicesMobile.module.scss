@@ -1,0 +1,47 @@
+.container {
+  @apply w-full mt-16 text-gray
+}
+
+.header {
+  @apply flex flex-col items-start mb-8 gap-4 px-4
+}
+
+.title {
+  @apply text-main font-normal
+}
+
+.content_box {
+  @apply flex gap-8 w-full overflow-x-auto px-4;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.content_box::-webkit-scrollbar {
+  display: none;
+}
+
+.content {
+  @apply flex-shrink-0 rounded-3xl p-3 bg-gray_light w-80;
+  scroll-snap-align: start;
+}
+
+.img {
+  @apply h-72 object-cover rounded-2xl
+}
+
+.text {
+  @apply p-8
+}
+
+.mainText {
+  @apply text-2xl font-normal mt-4
+}
+
+.description {
+  @apply mt-2 text-gray_text_light text-xl
+}
+
+.link {
+  @apply flex text-orange-extra gap-3 text-xl font-light
+}

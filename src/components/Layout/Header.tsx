@@ -7,8 +7,6 @@ import {setShowMenu} from "@/store/slices/layoutSlice";
 import Image from "next/image";
 
 
-
-
 const Header: FC = () => {
   console.log('Render Header');
 
@@ -19,9 +17,11 @@ const Header: FC = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      const currentScrollPos = window.pageYOffset;
+      const currentScrollPos = window.scrollY;
       if (!layout.showMenu) {
         setHeaderVisible(scrollPosition > currentScrollPos || currentScrollPos < 10);
+      } else {
+        setHeaderVisible(true);
       }
       setScrollPosition(currentScrollPos);
     };
@@ -44,7 +44,7 @@ const Header: FC = () => {
                 <div className={styles.navContainer}>
                   <button onClick={handleMenuToggle}>
                     <Image src={layout.showMenu ? "/MenuActive.svg" : "/Menu.svg"}
-                         alt="Menu Icon" width={32} height={32}/>
+                           alt="Menu Icon" width={32} height={32}/>
                   </button>
                   <a href="#" className={styles.navLink}>Гостиница</a>
                   <a href="#" className={styles.navLink}>Номера и цены</a>
@@ -63,7 +63,7 @@ const Header: FC = () => {
         </header>
         {layout.showMenu && (
             <>
-              <MenuDropdown />
+              <MenuDropdown/>
               <div className={styles.overlay} onClick={() => dispatch(setShowMenu(false))}></div>
             </>
         )}

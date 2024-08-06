@@ -16,9 +16,11 @@ const HeaderMobile: FC = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      const currentScrollPos = window.pageYOffset;
+      const currentScrollPos = window.scrollY;
       if (!layout.showMenu) {
         setHeaderVisible(scrollPosition > currentScrollPos || currentScrollPos < 10);
+      } else {
+        setHeaderVisible(true);
       }
       setScrollPosition(currentScrollPos);
     };
