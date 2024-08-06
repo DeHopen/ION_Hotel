@@ -3,7 +3,6 @@
 import Image from 'next/image';
 import styles from '@/styles/Desktop/InnopolisPage/InnopolisPage.module.scss';
 import {kanitCyrillic} from '@/styles/fonts/fonts'
-import Link from "next/link";
 import Placeholder from "@/components/UniversalComponents/Placeholder";
 import {useMediaQuery} from "react-responsive";
 import InnopolisPageMobile from "@/components/InnopolisPage/Mobile/InnopolisPageMobile";
@@ -20,10 +19,6 @@ const descriptions = [
   {
     title: 'Будущее на старте',
     description: 'В Иннополисе начали работать Центр обработки данных «Атомдата-Иннополис», технопарк в сфере высоких технологий «ИнноПарк».'
-  },
-  {
-    title: 'Университет Иннополис',
-    description: '100% выпускников трудоустраиваются в ведущие IT-компании или открывают свои стартапы.'
   },
 ];
 const PlaceholderText =
@@ -51,6 +46,9 @@ const Innopolis = () => {
                 <div className={styles.imageContainer}>
                   <Image src="/InnopolisPage/Innopolis.jpeg" alt="Иннополис" width={962} height={842}
                          className={styles.image}/>
+                  <div className={styles.placeholder}>
+                    <Placeholder mainText={PlaceholderText.mainText} additionalText={PlaceholderText.additionalText}/>
+                  </div>
                 </div>
                 <div className={styles.content}>
                   <div className={kanitCyrillic.className}>
@@ -64,15 +62,8 @@ const Innopolis = () => {
                         </li>
                     ))}
                   </ul>
-                  <Link href='#' className={styles.link}>
-                    <span>Подробнее</span>
-                    <Image src='/RoomPage/arrow_orange.svg' alt='arrow' width={24} height={24}/>
-                  </Link>
                 </div>
               </main>
-              <div className={styles.placeholder}>
-                <Placeholder mainText={PlaceholderText.mainText} additionalText={PlaceholderText.additionalText}/>
-              </div>
             </div>
         )}
 

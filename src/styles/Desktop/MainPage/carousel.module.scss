@@ -1,50 +1,58 @@
-.container{
+.container {
   @apply relative top-24 px-8
 }
 
-.box{
-  @apply overflow-hidden rounded-large h-980;
+.box {
+  @apply overflow-hidden rounded-large;
+  height: calc(100vh - 110px);
 }
 
-.carousel_container{
+.carousel_container {
   @apply flex transition-transform duration-500 ease-in-out;
 }
 
-.carousel{
+.carousel {
   @apply relative flex-shrink-0 w-full rounded-large;
+  height: calc(100vh - 110px);
 }
 
 .overlay {
-  @apply absolute top-0 left-0 w-full h-full bg-gray;
+  @apply absolute top-0 left-0 w-full h-screen bg-gray rounded-large ;
   opacity: 0.2;
   z-index: 1;
 }
 
-.textOverlay{
-  @apply absolute left-28 bottom-[22rem];
+.textOverlay {
+  @apply absolute left-28 ;
   z-index: 2;
 }
 
-.placeholder{
-  @apply absolute bottom-[56rem] left-10
+.placeholder {
+  @apply absolute z-30;
+  left: 30px;
+  top: 31px;
 }
 
-.title{
-  @apply text-white text-8xl w-11/12
+.title {
+  @apply text-white text-8xl md:text-7xl w-11/12
 }
 
-.img{
-  @apply w-full h-980 object-cover rounded-large;
+.items {
+  @apply flex justify-between items-center
 }
 
-.buttons{
-  @apply relative flex justify-end bottom-[59rem] right-10 gap-4
+.img {
+  @apply w-full h-full object-cover rounded-large;
 }
 
-.button1, .button2{
-  @apply px-6 py-3 backdrop-blur-2xl bg-white/15 rounded-2xl;
+.buttons {
+  @apply absolute flex justify-end top-8 right-8 gap-4
+}
+
+.button1, .button2 {
+  @apply px-6 py-3 backdrop-blur-2xl bg-white/15 rounded-2xl z-30;
   &:hover,
-  &:active{
+  &:active {
     @apply bg-white/40
   }
 }

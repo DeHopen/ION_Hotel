@@ -57,6 +57,7 @@ const config: Config = {
       fontSize: {
         main: ['40px', '48px'],
         h2: ['28px', '36px'],
+        mainMd: ['32px', '40px']
       }
     },
   },

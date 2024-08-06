@@ -1,5 +1,5 @@
 .container {
-  @apply relative flex flex-col justify-center w-full text-gray px-28;
+  @apply relative flex flex-col justify-center w-full text-gray 2xl:px-28 xl:px-20 px-10;
 }
 
 .header {
@@ -7,23 +7,28 @@
 }
 
 .title {
-  @apply text-main text-start font-normal ;
+  @apply text-main text-start font-normal;
 }
 
 .main {
-  @apply flex flex-col lg:flex-row w-full bg-gray_light p-3 rounded-3xl;
+  @apply flex flex-row justify-between w-full bg-gray_light p-3 rounded-3xl;
+  height: calc(100vh - 170px);
 }
 
 .image {
-  @apply rounded-2xl w-816 h-816 object-cover;
+  @apply rounded-2xl w-full h-full object-cover;
 }
 
 .content {
-  @apply flex flex-col w-1/2 p-14;
+  @apply flex flex-col w-3/5 p-10 2xl:p-14;
+}
+
+.imageContainer {
+  @apply relative
 }
 
 .heading {
-  @apply text-main font-normal mb-6;
+  @apply text-mainMd font-normal mb-6;
 }
 
 .item {
@@ -38,10 +43,6 @@
   @apply text-gray text-xl;
 }
 
-.link {
-  @apply flex absolute top-[52rem] text-xl text-orange-extra gap-3;
-}
-
-.placeholder{
-  @apply absolute top-[52rem] left-40
+.placeholder {
+  @apply absolute bottom-8 left-8
 }

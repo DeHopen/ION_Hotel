@@ -1,10 +1,10 @@
 "use client"
 
-import { useState, FC, useEffect, useRef } from "react";
+import {useState, FC, useEffect, useRef} from "react";
 import styles from "@/styles/Desktop/MainPage/carousel.module.scss"
 import Image from "next/image";
 import Placeholder from "@/components/UniversalComponents/Placeholder";
-import { kanitCyrillic } from '@/styles/fonts/fonts'
+import {kanitCyrillic} from '@/styles/fonts/fonts'
 
 interface ImageProps {
   src: string;
@@ -18,7 +18,7 @@ interface CarouselProps {
   images: ImageProps[];
 }
 
-const CarouselMainPage: FC<CarouselProps> = ({ images }) => {
+const CarouselMainPage: FC<CarouselProps> = ({images}) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isPrevHovered, setIsPrevHovered] = useState(false);
   const [isNextHovered, setIsNextHovered] = useState(false);
@@ -104,16 +104,46 @@ const CarouselMainPage: FC<CarouselProps> = ({ images }) => {
   return (
       <div className={styles.container} ref={containerRef}>
         <div className={styles.box}>
-          <div className={styles.carousel_container} style={{ transform: `translateX(-${currentIndex * 100}%)` }}>
+          <div className={styles.carousel_container} style={{transform: `translateX(-${currentIndex * 100}%)`}}>
             {images.map((image, index) => (
                 <div key={index} className={styles.carousel}>
                   <img src={image.src} alt={image.alt} className={styles.img} onClick={() => {
                     stopAutoScroll();
                     resetInactivityTimeout();
-                  }} />
+                  }}/>
                   <div className={styles.overlay}></div>
-                  <div className={styles.placeholder}>
-                    <Placeholder mainText={image.mainText} additionalText={image.additionalText} />
+                  <div className={styles.items}>
+                    <div className={styles.placeholder}>
+                      <Placeholder mainText={image.mainText} additionalText={image.additionalText}/>
+                    </div>
+                    <div className={styles.buttons}>
+                      <button
+                          className={styles.button1}
+                          onClick={handlePrevClick}
+                          onMouseEnter={() => setIsPrevHovered(true)}
+                          onMouseLeave={() => setIsPrevHovered(false)}
+                      >
+                        <Image
+                            src={isPrevHovered ? '/CarouselMainPage/Active/ArrowLeft.svg' : '/CarouselMainPage/ArrowLeft.svg'}
+                            alt='ArrowLeft'
+                            width={24}
+                            height={24}
+                        />
+                      </button>
+                      <button
+                          className={styles.button2}
+                          onClick={handleNextClick}
+                          onMouseEnter={() => setIsNextHovered(true)}
+                          onMouseLeave={() => setIsNextHovered(false)}
+                      >
+                        <Image
+                            src={isNextHovered ? '/CarouselMainPage/Active/ArrowRight.svg' : '/CarouselMainPage/ArrowRight.svg'}
+                            alt='ArrowRight'
+                            width={24}
+                            height={24}
+                        />
+                      </button>
+                    </div>
                   </div>
                   <div className={styles.textOverlay}>
                     <div className={kanitCyrillic.className}>
@@ -123,34 +153,7 @@ const CarouselMainPage: FC<CarouselProps> = ({ images }) => {
                 </div>
             ))}
           </div>
-          <div className={styles.buttons}>
-            <button
-                className={styles.button1}
-                onClick={handlePrevClick}
-                onMouseEnter={() => setIsPrevHovered(true)}
-                onMouseLeave={() => setIsPrevHovered(false)}
-            >
-              <Image
-                  src={isPrevHovered ? '/CarouselMainPage/Active/ArrowLeft.svg' : '/CarouselMainPage/ArrowLeft.svg'}
-                  alt='ArrowLeft'
-                  width={24}
-                  height={24}
-              />
-            </button>
-            <button
-                className={styles.button2}
-                onClick={handleNextClick}
-                onMouseEnter={() => setIsNextHovered(true)}
-                onMouseLeave={() => setIsNextHovered(false)}
-            >
-              <Image
-                  src={isNextHovered ? '/CarouselMainPage/Active/ArrowRight.svg' : '/CarouselMainPage/ArrowRight.svg'}
-                  alt='ArrowRight'
-                  width={24}
-                  height={24}
-              />
-            </button>
-          </div>
+
         </div>
       </div>
   );
