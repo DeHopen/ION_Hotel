@@ -19,8 +19,8 @@ const CarouselElement: FC<CarouselElementProps> = ({images}) => {
       <>
         <Carousel showThumbs={false} showArrows={false} showStatus={false}>
           {images.map((image, index) => (
-              <div key={index} className='w-full pb-8 rounded-3xl'>
-                <Image className={`${styles.img} ${Net.image}`}
+              <div key={index} className={styles.container}>
+                <Image className={`${Net.image} ${styles.img}`}
                        src={image.src}
                        alt={`Photo ${index + 1}`} width={image.width}
                        height={image.height}/>

@@ -3,9 +3,11 @@
 import {useState} from 'react';
 import EnterpriseDetails from './EnterpriseDetails';
 import styles from "@/styles/Desktop/Net/Net.module.scss";
+import stylesMobile from '@/styles/Mobile/Net/NetMobile.module.scss'
 import Image from "next/image";
 import {kanitCyrillic} from '@/styles/fonts/fonts'
 import {useMediaQuery} from "react-responsive";
+import NetMobile from "@/components/Net/Mobile/NetMobile";
 
 const enterprises = [
   {
@@ -87,7 +89,42 @@ export default function Net() {
   return (
       <>
         {isMobile ? (
-            <div></div>
+            <div className={stylesMobile.container}>
+              <div className={stylesMobile.header}>
+                <div className={kanitCyrillic.className}>
+                  <h1 className={stylesMobile.title}>Наша сеть</h1>
+                </div>
+                <div className={stylesMobile.buttons}>
+                  <button
+                      className={stylesMobile.button1}
+                      onClick={handlePrev}
+                      onMouseEnter={() => setIsPrevHovered(true)}
+                      onMouseLeave={() => setIsPrevHovered(false)}
+                  >
+                    <Image
+                        src={isPrevHovered ? '/Net/Arrows/Active/Left.svg' : '/Net/Arrows/Left.svg'}
+                        alt='ArrowLeft'
+                        width={24}
+                        height={24}
+                    />
+                  </button>
+                  <button
+                      className={stylesMobile.button2}
+                      onClick={handleNext}
+                      onMouseEnter={() => setIsNextHovered(true)}
+                      onMouseLeave={() => setIsNextHovered(false)}
+                  >
+                    <Image
+                        src={isNextHovered ? '/Net/Arrows/Active/Right.svg' : '/Net/Arrows/Right.svg'}
+                        alt='ArrowRight'
+                        width={24}
+                        height={24}
+                    />
+                  </button>
+                </div>
+              </div>
+              <NetMobile enterprise={currentEnterprise}/>
+            </div>
         ) : (
             <div className={styles.container}>
               <div className={styles.header}>

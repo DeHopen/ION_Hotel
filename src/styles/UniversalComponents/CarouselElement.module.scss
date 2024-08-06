@@ -1,3 +1,7 @@
+.container {
+  @apply w-full pb-8 rounded-3xl
+}
+
 .img {
   @apply relative object-cover rounded-2xl h-420;
 }
