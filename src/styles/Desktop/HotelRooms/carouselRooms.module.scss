@@ -1,5 +1,5 @@
-.container {
-  @apply flex w-full overflow-hidden;
+.carouselContainer {
+  @apply relative flex items-center justify-center w-full;
 }
 
 .imagesContainer {
@@ -38,7 +38,7 @@
   @apply transition-transform duration-500 ;
 }
 
-.small_image{
+.small_image {
   @apply object-cover rounded-3xl h-[33rem] w-[25rem]
 }
 
@@ -62,11 +62,11 @@
   @apply flex items-center text-gray pr-6 text-xl bg-gray_light gap-6 rounded-3xl transition-colors;
 }
 
-.img_room{
+.img_room {
   @apply w-28 h-28 rounded-3xl
 }
 
-.textAndArrow{
+.textAndArrow {
   @apply flex gap-10
 }
 

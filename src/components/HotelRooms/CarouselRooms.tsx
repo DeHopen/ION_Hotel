@@ -1,6 +1,9 @@
-'use client'
+"use client"
 
-import { useState, useEffect, useRef } from 'react';
+import {FC, useState} from 'react';
+import styles from '@/styles/Desktop/HotelRooms/carouselRooms.module.scss';
+import {nunitoSans} from '@/styles/fonts/fonts'
+import Image from "next/image";
 
 interface Image {
   src: string;
@@ -9,98 +12,83 @@ interface Image {
 
 interface RoomCarouselProps {
   images: Image[];
-  visibleImagesCount: number; // Number of images to be visible on screen at once
+  roomName: string;
+  price: string;
 }
 
-const Carousel: React.FC<RoomCarouselProps> = ({ images, visibleImagesCount = 3 }) => {
-  const [currentIndex, setCurrentIndex] = useState(images.length);
-  const [isScrolling, setIsScrolling] = useState(false);
-  const carouselRef = useRef<HTMLDivElement>(null);
+const CarouselRooms: FC<RoomCarouselProps> = ({images, roomName, price}) => {
+  const [current, setCurrent] = useState(0);
+  const imageCount = images.length;
 
-  // Duplicate images to create an infinite loop effect
-  const extendedImages = [...images, ...images, ...images];
-
-  const handleScroll = (event: React.WheelEvent<HTMLDivElement>) => {
-    event.preventDefault();
-    if (isScrolling) return;
-
-    setIsScrolling(true);
-    lockPageScroll();
-
-    const direction = event.deltaY;
-    if (direction > 0) {
-      setCurrentIndex((prevIndex) => prevIndex + 1);
-    } else {
-      setCurrentIndex((prevIndex) => prevIndex - 1);
-    }
+  const nextImage = () => {
+    setCurrent((prev) => (prev + 1) % imageCount);
   };
 
-  const lockPageScroll = () => {
-    document.body.style.overflow = 'hidden';
+  const prevImage = () => {
+    setCurrent((prev) => (prev - 1 + imageCount) % imageCount);
   };
 
-  const unlockPageScroll = () => {
-    document.body.style.overflow = '';
+  const getNextIndices = (start: number, count: number) => {
+    return Array.from({length: count}, (_, index) => (start + index) % imageCount);
   };
 
-  useEffect(() => {
-    if (isScrolling) {
-      const timeout = setTimeout(() => {
-        setIsScrolling(false);
-        unlockPageScroll();
+  const smallImageIndices = getNextIndices(current + 1, 2);
 
-        const totalImages = images.length;
-
-        // Reset to the middle of the extended images list to maintain infinite effect
-        if (currentIndex >= totalImages * 2 || currentIndex < totalImages) {
-          setCurrentIndex((prevIndex) => {
-            const newIndex = prevIndex < totalImages ? totalImages + prevIndex : prevIndex - totalImages;
-            if (carouselRef.current) {
-              carouselRef.current.style.transition = 'none'; // Temporarily disable transition
-              carouselRef.current.style.transform = `translateX(-${newIndex * (100 / visibleImagesCount)}%)`;
-
-              requestAnimationFrame(() => {
-                if (carouselRef.current) {
-                  carouselRef.current.style.transition = 'transform 0.7s ease-in-out'; // Re-enable transition
-                }
-              });
-            }
-            return newIndex;
-          });
-        }
-      }, 700); // Match transition duration
-
-      return () => clearTimeout(timeout);
-    }
-  }, [isScrolling, currentIndex, images.length, visibleImagesCount]);
-
-  const getImageStyle = (index: number) => {
-    const actualIndex = index % images.length;
-    return `object-cover duration-700 ${
-        actualIndex === currentIndex % images.length
-            ? 'w-832 h-832' // Highlight selected image
-            : 'w-[25rem] h-[33rem] opacity-50' // Dim non-selected images
-    }`;
-  };
 
   return (
-      <div className="flex w-full overflow-hidden" onWheel={handleScroll}>
-        <div
-            ref={carouselRef}
-            className="flex gap-4 transition-transform ease-in-out duration-700 w-full"
-            style={{
-              width: `${100 * (extendedImages.length / visibleImagesCount)}%`, // Adjust width based on visible images
-              transform: `translateX(-${currentIndex * (100 / visibleImagesCount)}%)`  // Center the current image
-            }}
-        >
-          {extendedImages.map((image, index) => (
-              <div key={index} className={`flex-shrink-0 w-full`} style={{ width: `${100 / 3}%` }}>
-                <img src={image.src} alt={image.alt} className={getImageStyle(index)} />
+      <div className={styles.carouselContainer}>
+        <div className={styles.imagesContainer}>
+          {/* Основное изображение */}
+          <div className={styles.mainImage}>
+            <div className={styles.textContainer}>
+              <img
+                  src={images[current].src}
+                  alt={images[current].alt}
+                  className={styles.main_image}
+              />
+              <div className={styles.imageCaption}>
+                <div>{roomName}</div>
+                <span>{price} ₽ / сутки</span>
               </div>
-          ))}
+            </div>
+          </div>
+
+          {/* Маленькие изображения */}
+          <div className={styles.smallImages}>
+            {smallImageIndices.map((index) => (
+                <div
+                    key={index}
+                    className={styles.smallImage}
+                    onClick={() => setCurrent(index)}
+                >
+                  <img
+                      src={images[index].src}
+                      alt={images[index].alt}
+                      className={styles.small_image}
+                  />
+                </div>
+            ))}
+          </div>
+        </div>
+        {/* Кнопки навигации */}
+        <div className={styles.navigationButtons}>
+          <button onClick={prevImage} className={styles.navButton}>‹</button>
+          <button onClick={nextImage} className={styles.navButton}>›</button>
+        </div>
+
+        <div className={nunitoSans.className}>
+          <div className={styles.anotherRoomButton}>
+            <a href="/another-room" className={styles.buttonLink}>
+              <img className={styles.img_room} src="/Small_room/1.jpg" alt=""/>
+              <div className={styles.textAndArrow}>
+                <span>Малый номер</span>
+                <Image src='/RoomPage/arrow_gray.svg' alt='arrow' width={24} height={24}/>
+              </div>
+            </a>
+          </div>
         </div>
       </div>
   );
-};
+}
 
-export default Carousel;
+export default CarouselRooms;
