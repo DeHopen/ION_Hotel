@@ -1,4 +1,4 @@
-import React, {FC} from 'react';
+import React, {FC, useEffect, useRef} from 'react';
 import {Carousel} from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import styles from "@/styles/UniversalComponents/CarouselElement.module.scss";
@@ -21,11 +21,49 @@ interface CarouselElementProps {
 }
 
 const CarouselMain: FC<CarouselElementProps> = ({images}) => {
+  const carouselRef = useRef<HTMLDivElement>(null);
+  let startX = 0;
+  let startY = 0;
 
+  useEffect(() => {
+    const handleTouchStart = (event: TouchEvent) => {
+      const touch = event.touches[0];
+      startX = touch.clientX;
+      startY = touch.clientY;
+    };
+
+    const handleTouchMove = (event: TouchEvent) => {
+      const touch = event.touches[0];
+      const deltaX = touch.clientX - startX;
+      const deltaY = touch.clientY - startY;
+
+      if (Math.abs(deltaY) > Math.abs(deltaX)) {
+        // If swipe is more vertical, allow scrolling
+        event.stopPropagation();
+      }
+    };
+
+    const carouselElement = carouselRef.current;
+    if (carouselElement) {
+      carouselElement.addEventListener('touchstart', handleTouchStart);
+      carouselElement.addEventListener('touchmove', handleTouchMove);
+    }
+
+    return () => {
+      if (carouselElement) {
+        carouselElement.removeEventListener('touchstart', handleTouchStart);
+        carouselElement.removeEventListener('touchmove', handleTouchMove);
+      }
+    };
+  }, []);
 
   return (
-      <div className={Main.container}>
-        <Carousel showThumbs={false} showArrows={false} showStatus={false} autoPlay={true} infiniteLoop={true}
+      <div className={Main.container} ref={carouselRef}>
+        <Carousel showThumbs={false}
+                  showArrows={false}
+                  showStatus={false}
+                  autoPlay={true}
+                  infiniteLoop={true}
                   className='main'>
           {images.map((image, index) => (
               <div key={index} className={styles.container}>
