@@ -3,6 +3,11 @@
   z-index: 2;
 }
 
+.img {
+  @apply flex justify-center;
+  width: 4px;
+}
+
 .text {
   @apply text-white text-base font-light
 }

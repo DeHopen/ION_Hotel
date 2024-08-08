@@ -12,6 +12,8 @@ interface ImageProps {
   title: string;
   mainText: string;
   additionalText: string;
+  width: number,
+  height: number,
 }
 
 interface CarouselProps {
@@ -107,7 +109,8 @@ const CarouselMainPage: FC<CarouselProps> = ({images}) => {
           <div className={styles.carousel_container} style={{transform: `translateX(-${currentIndex * 100}%)`}}>
             {images.map((image, index) => (
                 <div key={index} className={styles.carousel}>
-                  <img src={image.src} alt={image.alt} className={styles.img} onClick={() => {
+                  <Image src={image.src} alt={image.alt} className={styles.img} width={image.width}
+                         height={image.height} onClick={() => {
                     stopAutoScroll();
                     resetInactivityTimeout();
                   }}/>

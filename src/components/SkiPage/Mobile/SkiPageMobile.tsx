@@ -1,9 +1,9 @@
 import React, {FC} from 'react';
-import CarouselElement from "@/components/UniversalComponents/CarouselElement";
 import styles from "@/styles/Mobile/SkiPage/SkiPageMobile.module.scss";
 import {kanitCyrillic} from "@/styles/fonts/fonts";
 import Link from "next/link";
 import Image from "next/image";
+import CarouselSki from "@/components/SkiPage/Mobile/CarouselSki";
 
 interface SkiPageMobileProps {
   content: {
@@ -51,7 +51,7 @@ const SkiPageMobile: FC<SkiPageMobileProps> = ({content}) => {
             </Link>
           </div>
           <div className={styles.carousel}>
-            <CarouselElement images={images}/>
+            <CarouselSki images={images}/>
           </div>
         </div>
 

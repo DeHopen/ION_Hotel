@@ -3,7 +3,7 @@ import styles from "@/styles/Mobile/Net/NetMobile.module.scss";
 import {kanitCyrillic} from "@/styles/fonts/fonts";
 import Image from "next/image";
 import Link from "next/link";
-import CarouselElement from "@/components/UniversalComponents/CarouselElement";
+import CarouselNet from "@/components/Net/Mobile/CarouselNet";
 
 interface Enterprise {
   id: number;
@@ -28,7 +28,7 @@ const NetMobile: FC<NetMobileProps> = ({enterprise}: NetMobileProps) => {
   return (
       <div className={styles.containerContent}>
         <div className={styles.carousel}>
-          <CarouselElement images={enterprise.images}/>
+          <CarouselNet images={enterprise.images}/>
         </div>
         <div className={styles.text}>
           <div className={kanitCyrillic.className}>

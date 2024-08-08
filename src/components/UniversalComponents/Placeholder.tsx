@@ -13,7 +13,9 @@ const Placeholder: FC<PlaceholderProps> = ({mainText, additionalText}) => {
       <>
         <div className={styles.container}>
           <span className={styles.text}>{mainText}</span>
-          <img src='/Placeholder/placeholder_dot.svg' alt='Placeholder'/>
+          <div className={styles.img}>
+            <img src='/Placeholder/placeholder_dot.svg' alt='Placeholder'/>
+          </div>
           <span className={styles.text}>{additionalText}</span>
         </div>
       </>

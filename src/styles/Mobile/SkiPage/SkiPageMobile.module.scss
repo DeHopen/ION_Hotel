@@ -26,4 +26,7 @@
   @apply p-4 pb-2 rounded-2xl
 }
 
+.img {
+  @apply relative object-cover rounded-2xl h-420;
+}
 

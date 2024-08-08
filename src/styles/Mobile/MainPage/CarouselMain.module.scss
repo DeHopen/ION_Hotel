@@ -1,0 +1,28 @@
+.container {
+  @apply relative top-20 px-4 rounded-large
+}
+
+.img {
+  @apply relative object-cover rounded-large;
+  height: calc(100vh - 110px);
+}
+
+.overlay {
+  @apply absolute top-0 left-0 w-full bg-gray rounded-large;
+  height: calc(100vh - 110px);
+  opacity: 0.2;
+  z-index: 1;
+}
+
+.placeholder {
+  @apply absolute flex items-center justify-center top-0 w-full px-4 pt-4
+}
+
+.textOverlay {
+  @apply absolute flex w-full justify-center  bottom-1/2;
+  z-index: 2;
+}
+
+.title {
+  @apply text-white text-5xl
+}
