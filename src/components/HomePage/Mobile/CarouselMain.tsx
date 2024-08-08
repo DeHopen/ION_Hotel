@@ -24,29 +24,33 @@ const CarouselMain: FC<CarouselElementProps> = ({images}) => {
   const carouselRef = useRef<HTMLDivElement>(null);
   let startX = 0;
   let startY = 0;
+  let isScrolling = false;
 
   useEffect(() => {
     const handleTouchStart = (event: TouchEvent) => {
       const touch = event.touches[0];
       startX = touch.clientX;
       startY = touch.clientY;
+      isScrolling = false; // Reset scrolling flag
     };
 
     const handleTouchMove = (event: TouchEvent) => {
+      if (isScrolling) return;
+
       const touch = event.touches[0];
       const deltaX = touch.clientX - startX;
       const deltaY = touch.clientY - startY;
 
+      // Determine if the swipe is more vertical
       if (Math.abs(deltaY) > Math.abs(deltaX)) {
-        // If swipe is more vertical, allow scrolling
-        event.stopPropagation();
+        isScrolling = true; // Set the flag to prevent carousel handling
       }
     };
 
     const carouselElement = carouselRef.current;
     if (carouselElement) {
-      carouselElement.addEventListener('touchstart', handleTouchStart);
-      carouselElement.addEventListener('touchmove', handleTouchMove);
+      carouselElement.addEventListener('touchstart', handleTouchStart, {passive: true});
+      carouselElement.addEventListener('touchmove', handleTouchMove, {passive: true});
     }
 
     return () => {
@@ -64,6 +68,7 @@ const CarouselMain: FC<CarouselElementProps> = ({images}) => {
                   showStatus={false}
                   autoPlay={true}
                   infiniteLoop={true}
+                  swipeable={true}
                   className='main'>
           {images.map((image, index) => (
               <div key={index} className={styles.container}>
