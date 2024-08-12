@@ -1,106 +1,74 @@
-'use client'
-
 import {FC} from 'react';
 import Image from 'next/image';
 import styles from '@/styles/Desktop/InfoHotel/InfoHotel.module.scss';
 import {kanitCyrillic} from '@/styles/fonts/fonts'
 import Placeholder from "@/components/UniversalComponents/Placeholder";
-import {useMediaQuery} from "react-responsive";
-import InfoHotelMobile from "@/components/InfoHotel/Mobile/InfoHotelMobile";
+import {hotelContent, hotelImage, placeholderText} from "@/types/types";
 
-const content = [
-  {
-    heading: 'Как нас найти?',
-    description: 
-    {
-      title: 'Генеральный проект Иннополиса разработал планировщик Сингапура Лиу Тай Кер. При строительстве заложили капсулу с посланием будущим жителям.',
-      address: 'г. Иннополис, ул. Университетская, д. 1',
-      phone: '+7 (495) 234-12-06',
-      email: 'ionhotel@ioncompany.ru',
-    },
-
-  },
-];
-
-const mainImg = {
-  img: '/InfoHotel/ION.jpeg',
-  width: 1280,
-  height: 960,
+interface InfoHotelProps {
+  content: hotelContent,
+  mainImg: hotelImage,
+  placeholder: placeholderText
 }
 
-const placeholder = {
-  mainText: 'ION',
-  additionalText: 'Отель',
-}
-
-
-const InfoHotel: FC = () => {
-
-  const isMobile = useMediaQuery({ maxWidth: 768 });
+const InfoHotel: FC<InfoHotelProps> = ({content, mainImg, placeholder}) => {
 
   return (
-      <>
-      {isMobile ?(
-          <InfoHotelMobile content={content} mainImg={mainImg} placeholder={placeholder}/>
-      ):(
-          <div className={styles.container}>
-            <div className={styles.box}>
-              <div className={styles.textSection}>
-                {content.map((item, index) => (
-                    <div key={index} className={styles.textContent}>
-                      <div className={kanitCyrillic.className}>
-                        <h1 className={styles.heading}>{item.heading}</h1>
-                      </div>
-                      <p className={styles.title}>{item.description.title}</p>
-                      <div className={styles.info}>
-                        <p className={styles.address}>
-                          <div className={styles.icon}>
-                            <Image src='/InfoHotel/address.svg' alt='address' width={28} height={28}/>
-                          </div>
-                          <div className={styles.content}>
-                            <span>Адрес:</span>
-                            <p>{item.description.address}</p>
-                            <a href='#'>Как проехать?</a>
-                          </div>
-                        </p>
-                        <p className={styles.phone}>
-                          <div className={styles.icon}>
-                            <Image src='/InfoHotel/phone.svg' alt='phone' width={28} height={28}/>
-                          </div>
-                          <div className={styles.content}>
-                            <span>Телефон для бронирования:</span>
-                            <p>{item.description.phone}</p>
-                          </div>
-                        </p>
-                        <p className={styles.email}>
-                          <div className={styles.icon}>
-                            <Image src='/InfoHotel/email.svg' alt='email' width={28} height={28}/>
-                          </div>
-                          <div className={styles.content}>
-                            <span>E-mail:</span>
-                            <p>{item.description.email}</p>
-                          </div>
-                        </p>
-                      </div>
-                    </div>
-                ))}
+      <div className={styles.container}>
+        <div className={styles.box}>
+          <div className={styles.textSection}>
+            <div className={styles.textContent}>
+              <div className={kanitCyrillic.className}>
+                <h1 className={styles.heading}>{content.heading}</h1>
               </div>
-              <div className={styles.imageSection}>
-                <Image
-                    src={mainImg.img}
-                    alt="Building"
-                    width={mainImg.width}
-                    height={mainImg.height}
-                    className={styles.image}
-                />
-                <div className={styles.placeholder}>
-                  <Placeholder mainText={placeholder.mainText} additionalText={placeholder.additionalText}/>
-                </div>
+              <p className={styles.title}>{content.description.title}</p>
+              <div className={styles.info}>
+                <p className={styles.address}>
+                  <div className={styles.icon}>
+                    <Image src='/InfoHotel/address.svg' alt='address' width={28} height={28}/>
+                  </div>
+                  <div className={styles.content}>
+                    <span>Адрес:</span>
+                    <p>{content.description.address}</p>
+                    <a href='#'>Как проехать?</a>
+                  </div>
+                </p>
+                <p className={styles.phone}>
+                  <div className={styles.icon}>
+                    <Image src='/InfoHotel/phone.svg' alt='phone' width={28} height={28}/>
+                  </div>
+                  <div className={styles.content}>
+                    <span>Телефон для бронирования:</span>
+                    <p>{content.description.phone}</p>
+                  </div>
+                </p>
+                <p className={styles.email}>
+                  <div className={styles.icon}>
+                    <Image src='/InfoHotel/email.svg' alt='email' width={28} height={28}/>
+                  </div>
+                  <div className={styles.content}>
+                    <span>E-mail:</span>
+                    <p>{content.description.email}</p>
+                  </div>
+                </p>
               </div>
             </div>
           </div>
-      )};
-      </>
+          <div className={styles.imageSection}>
+            <Image
+                src={mainImg.img}
+                alt="Building"
+                width={mainImg.width}
+                height={mainImg.height}
+                className={styles.image}
+            />
+            <div className={styles.placeholder}>
+              <Placeholder mainText={placeholder.mainText} additionalText={placeholder.additionalText}/>
+            </div>
+          </div>
+        </div>
+      </div>
+
   );
 };
 

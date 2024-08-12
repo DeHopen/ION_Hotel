@@ -4,22 +4,16 @@ import {kanitCyrillic} from "@/styles/fonts/fonts";
 import Image from "next/image";
 import Link from "next/link";
 import Placeholder from "@/components/UniversalComponents/Placeholder";
+import {innoDescription, placeholderText} from "@/types/types";
 
 
 interface InnopolisPageMobileProps {
-  PlaceholderText: {
-    mainText: string,
-    additionalText: string,
-  }
-  descriptions: {
-    title: string,
-    description: string,
-  }[]
+  PlaceholderText: placeholderText
+  descriptions: innoDescription[]
 }
 
 const InnopolisPageMobile: FC<InnopolisPageMobileProps> = ({PlaceholderText, descriptions}) => {
   console.log('Render InnopolisPageMobile');
-
 
   return (
       <div className={styles.container}>

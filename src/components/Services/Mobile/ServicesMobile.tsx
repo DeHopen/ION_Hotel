@@ -3,16 +3,11 @@ import styles from "@/styles/Mobile/Services/ServicesMobile.module.scss";
 import {kanitCyrillic, nunitoSans} from "@/styles/fonts/fonts";
 import Link from "next/link";
 import Image from "next/image";
+import {hotelServices} from "@/types/types";
 
 
 interface ServicesMobileProps {
-  services: {
-    title: string,
-    description: string,
-    imageUrl: string,
-    width: number,
-    height: number,
-  }[]
+  services: hotelServices[]
 }
 
 const ServicesMobile: FC<ServicesMobileProps> = ({services}) => {

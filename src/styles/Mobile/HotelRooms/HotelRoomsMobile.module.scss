@@ -1,0 +1,80 @@
+.carouselContainer {
+  @apply relative flex items-center justify-center w-full;
+}
+
+.imagesContainer {
+  @apply flex flex-row space-x-6 rounded-3xl w-full;
+}
+
+.mainImage {
+  @apply rounded-3xl transition-transform w-full;
+}
+
+.textContainer {
+  @apply bg-gray_light rounded-3xl;
+}
+
+.main_image {
+  @apply object-cover w-832 h-832 rounded-3xl;
+}
+
+.imageCaption {
+  @apply text-gray px-8 py-4 flex flex-col;
+}
+
+.imageCaption div {
+  @apply text-2xl font-normal
+}
+
+.imageCaption span {
+  @apply text-sm
+}
+
+.smallImages {
+  @apply flex flex-row gap-6 w-full;
+}
+
+.smallImage {
+  @apply transition-transform duration-500 ;
+}
+
+.small_image {
+  @apply object-cover rounded-3xl h-[33rem] w-[25rem]
+}
+
+.navigationButtons {
+  @apply absolute inset-0 flex justify-between items-center p-4;
+}
+
+.navButton {
+  @apply text-white bg-black/50 p-2 rounded-full;
+}
+
+.animating {
+  animation: scaleIn 0.5s ease-in-out;
+}
+
+.anotherRoomButton {
+  @apply absolute bottom-0 right-0;
+}
+
+.buttonLink {
+  @apply flex items-center text-gray pr-6 text-xl bg-gray_light gap-6 rounded-3xl transition-colors;
+}
+
+.img_room {
+  @apply w-28 h-28 rounded-3xl
+}
+
+.textAndArrow {
+  @apply flex gap-10
+}
+
+@keyframes scaleIn {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.1);
+  }
+}

@@ -4,31 +4,14 @@ import {kanitCyrillic} from "@/styles/fonts/fonts";
 import Link from "next/link";
 import Image from "next/image";
 import CarouselSki from "@/components/SkiPage/Mobile/CarouselSki";
+import {skiContent, skiImage} from "@/types/types";
 
 interface SkiPageMobileProps {
-  content: {
-    description: string,
-  }[]
+  content: skiContent[],
+  images: skiImage[]
 }
 
-const images = [
-  {
-    src: '/SkiPage/Dorms.jpeg',
-    width: 1100,
-    height: 746
-  },
-  {
-    src: '/SkiPage/ski_lift.jpeg',
-    width: 1100,
-    height: 835
-  },
-  {
-    src: '/SkiPage/ski.jpeg',
-    width: 1100,
-    height: 755
-  }
-]
-const SkiPageMobile: FC<SkiPageMobileProps> = ({content}) => {
+const SkiPageMobile: FC<SkiPageMobileProps> = ({content, images}) => {
   console.log('Render SkiPageMobile');
 
   return (

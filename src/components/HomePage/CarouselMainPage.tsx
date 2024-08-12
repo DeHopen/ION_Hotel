@@ -5,19 +5,10 @@ import styles from "@/styles/Desktop/MainPage/carousel.module.scss"
 import Image from "next/image";
 import Placeholder from "@/components/UniversalComponents/Placeholder";
 import {kanitCyrillic} from '@/styles/fonts/fonts'
-
-interface ImageProps {
-  src: string;
-  alt: string;
-  title: string;
-  mainText: string;
-  additionalText: string;
-  width: number,
-  height: number,
-}
+import {mainPageImage} from "@/types/types";
 
 interface CarouselProps {
-  images: ImageProps[];
+  images: mainPageImage[];
 }
 
 const CarouselMainPage: FC<CarouselProps> = ({images}) => {

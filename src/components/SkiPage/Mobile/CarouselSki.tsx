@@ -5,13 +5,10 @@ import styles from "@/styles/UniversalComponents/CarouselElement.module.scss";
 import Ski from "@/styles/Mobile/SkiPage/SkiPageMobile.module.scss"
 import Image from "next/image";
 import '@/styles/UniversalComponents/castomCarousel/castomCarousel.css';
+import {skiImage} from "@/types/types";
 
 interface CarouselElementProps {
-  images: {
-    src: string,
-    width: number,
-    height: number,
-  }[]
+  images: skiImage[]
 }
 
 const CarouselSki: FC<CarouselElementProps> = ({images}) => {
