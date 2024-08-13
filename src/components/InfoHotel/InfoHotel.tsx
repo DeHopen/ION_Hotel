@@ -14,7 +14,7 @@ interface InfoHotelProps {
 const InfoHotel: FC<InfoHotelProps> = ({content, mainImg, placeholder}) => {
 
   return (
-      <div className={styles.container}>
+      <div className={styles.container} id={'contact'}>
         <div className={styles.box}>
           <div className={styles.textSection}>
             <div className={styles.textContent}>
@@ -68,7 +68,6 @@ const InfoHotel: FC<InfoHotelProps> = ({content, mainImg, placeholder}) => {
           </div>
         </div>
       </div>
-
   );
 };
 

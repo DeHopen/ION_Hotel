@@ -4,7 +4,8 @@
 }
 
 .box {
-  @apply flex flex-col md:flex-row justify-between bg-gray_light p-3 rounded-3xl
+  @apply flex flex-col md:flex-row justify-between bg-gray_light p-3 rounded-3xl;
+  height: calc(100vh - 170px);
 }
 
 .textSection {

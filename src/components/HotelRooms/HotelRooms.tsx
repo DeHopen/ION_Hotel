@@ -1,53 +1,48 @@
 'use client'
 
-import {FC} from 'react';
-import CarouselRooms from "@/components/HotelRooms/CarouselRooms";
-import {kanitCyrillic, nunitoSans} from '@/styles/fonts/fonts'
-import Image from "next/image";
-import Link from "next/link";
-import {useMediaQuery} from "react-responsive";
+import {FC, useState} from 'react';
+import {kanitCyrillic} from '@/styles/fonts/fonts'
+import styles from "@/styles/Desktop/HotelRooms/HotelRooms.module.scss";
+import {roomsDetails} from "@/types/types";
+import RoomsDetails from "@/components/HotelRooms/RoomsDetails";
 
-const images = [
-  {src: "/Big_room/1.jpg", alt: "restaurant"},
-  {src: "/Big_room/2.jpg", alt: "restaurant"},
-  {src: "/Big_room/3.jpg", alt: "restaurant"},
-  {src: "/Big_room/4.jpg", alt: "restaurant"},
-  {src: "/Big_room/5.jpg", alt: "restaurant"},
-  {src: "/Big_room/6.jpg", alt: "restaurant"},
-];
+interface HotelRoomsProps {
+  rooms: roomsDetails[];
+}
 
-const RoomName = 'Большой номер'
-const Price = '12 000'
+const HotelRooms: FC<HotelRoomsProps> = ({rooms}) => {
 
-const HotelRooms: FC = () => {
+  const [currentRoom, setCurrentRoom] = useState(rooms[0]);
+  const [currentIndex, setCurrentIndex] = useState(0);
 
-  const isMobile = useMediaQuery({maxWidth: 768});
+  const handleSelectEnterprise = (index: number) => {
+    setCurrentIndex(index);
+    setCurrentRoom(rooms[index]);
+  };
 
   return (
-      <>
-        {isMobile ? (
-            <div className='mt-28'>
 
-            </div>
-        ) : (
-            <div className="flex justify-center mt-52 mb-40 w-full px-28">
-              <main className={kanitCyrillic.className}>
-                <div className='flex flex-row justify-between items-center mb-8'>
-                  <h1 className="text-5xl font-normal text-gray">Номера и цены</h1>
-                  <div className={nunitoSans.className}>
-                    <Link href='#' className='flex text-orange-extra gap-3 text-xl font-light'>
-                      <span>Все номера</span>
-                      <Image src='/RoomPage/arrow_orange.svg' alt='arrow' width={24} height={24}/>
-                    </Link>
-                  </div>
-                </div>
-                <CarouselRooms roomName={RoomName} images={images} price={Price}/>
-              </main>
-            </div>
-        )}
-      </>
+      <div className={styles.container}>
+        <div className={styles.header}>
+          <div className={kanitCyrillic.className}>
+            <h1 className={styles.title}>Номера и цены</h1>
+          </div>
+          <div className={styles.toggleButtons}>
+            {rooms.map((enterprise, index) => (
+                <button
+                    key={enterprise.id}
+                    className={`${styles.Button}  ${currentIndex === index ? styles.activeButton : styles.inactiveButton}`}
+                    onClick={() => handleSelectEnterprise(index)}
+                >
+                  {enterprise.type}
+                </button>
+            ))}
+          </div>
+        </div>
+        <RoomsDetails room={currentRoom}/>
+      </div>
   );
-};
+}
 
 
 export default HotelRooms;

@@ -4,7 +4,7 @@ import {
   innoDescription,
   mainPageImage,
   netEnterprise,
-  placeholderText,
+  placeholderText, roomsDetails,
   skiContent,
   skiImage
 } from '@/types/types';
@@ -39,6 +39,128 @@ export const CarouselMainImages: mainPageImage[] = [
     height: 1406,
   },
 ];
+
+//Данные для экрана Номера и цены
+export const rooms: roomsDetails[] = [
+  {
+    id: 1,
+    type: 'Стандарт',
+    name: 'Стандарт',
+    description: 'Двухместный номер площадью 12 м² . В номере -  2 отдельные кровати  или одна двуспальная кровать, кондиционер, журнальный столик, пуфик, шкаф, прикроватные тумбочки, телевизор со спутниковыми каналами. В номере также есть собственный сан. узел с душевой кабинкой. ',
+    price: '12 000',
+    images: [
+      {
+        src: '/Big_room/1.jpg',
+        width: 1440,
+        height: 1800
+      },
+      {
+        src: '/Big_room/2.jpg',
+        width: 1440,
+        height: 1800
+      },
+      {
+        src: '/Big_room/3.jpg',
+        width: 1440,
+        height: 1800
+      },
+      {
+        src: '/Big_room/4.jpg',
+        width: 1440,
+        height: 1800
+      },
+      {
+        src: '/Big_room/5.jpg',
+        width: 1440,
+        height: 1800
+      },
+      {
+        src: '/Big_room/6.jpg',
+        width: 1440,
+        height: 1800
+      },
+    ],
+  },
+  {
+    id: 2,
+    type: 'Джуниор',
+    name: 'Джуниор',
+    price: '7 000',
+    description: 'Двухместный номер площадью 12 м² . В номере -  2 отдельные кровати  или одна двуспальная кровать, кондиционер, журнальный столик, пуфик, шкаф, прикроватные тумбочки, телевизор со спутниковыми каналами. В номере также есть собственный сан. узел с душевой кабинкой. ',
+    images: [
+      {
+        src: '/Big_room/1.jpg',
+        width: 1440,
+        height: 1800
+      },
+      {
+        src: '/Big_room/2.jpg',
+        width: 1440,
+        height: 1800
+      },
+      {
+        src: '/Big_room/3.jpg',
+        width: 1440,
+        height: 1800
+      },
+      {
+        src: '/Big_room/4.jpg',
+        width: 1440,
+        height: 1800
+      },
+      {
+        src: '/Big_room/5.jpg',
+        width: 1440,
+        height: 1800
+      },
+      {
+        src: '/Big_room/6.jpg',
+        width: 1440,
+        height: 1800
+      }
+    ],
+  },
+  {
+    id: 3,
+    type: 'Люкс',
+    name: 'Люкс',
+    price: '20 000',
+    description: 'Двухместный номер площадью 12 м² . В номере -  2 отдельные кровати  или одна двуспальная кровать, кондиционер, журнальный столик, пуфик, шкаф, прикроватные тумбочки, телевизор со спутниковыми каналами. В номере также есть собственный сан. узел с душевой кабинкой. ',
+    images: [
+      {
+        src: '/Big_room/1.jpg',
+        width: 1440,
+        height: 1800
+      },
+      {
+        src: '/Big_room/2.jpg',
+        width: 1440,
+        height: 1800
+      },
+      {
+        src: '/Big_room/3.jpg',
+        width: 1440,
+        height: 1800
+      },
+      {
+        src: '/Big_room/4.jpg',
+        width: 1440,
+        height: 1800
+      },
+      {
+        src: '/Big_room/5.jpg',
+        width: 1440,
+        height: 1800
+      },
+      {
+        src: '/Big_room/6.jpg',
+        width: 1440,
+        height: 1800
+      }
+    ],
+  }
+]
+
 
 //Данные для экрана Иннополис
 export const innoDescriptions: innoDescription[] = [

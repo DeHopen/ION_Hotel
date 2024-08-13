@@ -24,7 +24,7 @@ const Net: FC<NetProps> = ({enterprises}) => {
       <div className={styles.container}>
         <div className={styles.header}>
           <div className={kanitCyrillic.className}>
-            <h1 className={styles.title}>Наша сеть</h1>
+            <h1 className={styles.title}>Наша сеть SIXTY</h1>
           </div>
           <div className={styles.toggleButtons}>
             {enterprises.map((enterprise, index) => (

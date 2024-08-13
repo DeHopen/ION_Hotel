@@ -17,7 +17,7 @@ import {
   enterprises,
   innoDescriptions,
   innoPlaceholder, skiContents,
-  skiImages, services
+  skiImages, services, rooms
 } from "@/data/data";
 import Net from "@/components/Net/Net";
 import ServicesMobile from "@/components/Services/Mobile/ServicesMobile";
@@ -41,7 +41,7 @@ export default function Home() {
         ) : (
             <main>
               <CarouselMainPage images={CarouselMainImages}/>
-              <HotelRooms/>
+              <HotelRooms rooms={rooms}/>
               <Innopolis descriptions={innoDescriptions} PlaceholderText={innoPlaceholder}/>
               <SkiPage content={skiContents} images={skiImages}/>
               <Net enterprises={enterprises}/>

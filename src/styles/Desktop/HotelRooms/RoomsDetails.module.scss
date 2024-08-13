@@ -1,5 +1,5 @@
 .container {
-  @apply relative flex flex-row p-3 bg-gray_light rounded-3xl w-full;
+  @apply relative flex flex-row p-3 rounded-3xl w-full;
   height: calc(100vh - 170px);
 }
 
@@ -12,13 +12,17 @@
   @apply object-cover w-full h-full rounded-2xl object-bottom;
 }
 
+
 .content {
-  @apply flex flex-col w-1/2 2xl:px-14 2xl:py-11 xl:px-8 xl:py-5 justify-between;
+  @apply flex flex-col w-1/2 pl-8 justify-between gap-8;
+}
+
+.description {
+  @apply flex flex-col justify-between text-gray bg-gray_light p-12 h-full rounded-3xl
 }
 
 .text {
-  @apply flex flex-col text-gray gap-5;
-  margin-bottom: 10%;
+  @apply flex flex-col gap-5
 }
 
 .text h3 {
@@ -29,16 +33,20 @@
   @apply text-xl text-gray_text_light
 }
 
+.button button {
+  @apply px-8 py-4 bg-gray text-white font-light text-xl rounded-2xl
+}
+
 .link {
   @apply flex top-[37rem] text-xl text-orange-extra gap-3 mt-4;
 }
 
 .smallImagesWrapper {
-  @apply relative w-full
+  @apply relative
 }
 
 .smallImages {
-  @apply relative flex w-full overflow-x-hidden gap-4 rounded-2xl;
+  @apply relative flex w-full h-full overflow-x-hidden gap-4 rounded-2xl;
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
   -ms-overflow-style: none;
@@ -66,8 +74,8 @@
   position: absolute;
   top: 0;
   bottom: 0;
-  border-radius: 16px;
   width: 77px;
+  border-radius: 16px;
   pointer-events: none;
   z-index: 1;
   transition: opacity 0.5s ease-in-out;

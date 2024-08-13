@@ -95,7 +95,7 @@ const CarouselMainPage: FC<CarouselProps> = ({images}) => {
   }, [currentIndex]);
 
   return (
-      <div className={styles.container} ref={containerRef}>
+      <div className={styles.container} ref={containerRef} id={'main'}>
         <div className={styles.box}>
           <div className={styles.carousel_container} style={{transform: `translateX(-${currentIndex * 100}%)`}}>
             {images.map((image, index) => (

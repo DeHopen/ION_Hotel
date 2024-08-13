@@ -1,15 +1,16 @@
-import React, {useState, useEffect, useRef} from 'react';
-import styles from '@/styles/Desktop/Net/NetDetails.module.scss';
-import Image from 'next/image';
-import {kanitCyrillic} from '@/styles/fonts/fonts';
-import {netEnterprise} from "@/types/types";
+"use client"
 
+import React, {FC, useEffect, useRef, useState} from 'react';
+import styles from '@/styles/Desktop/HotelRooms/RoomsDetails.module.scss';
+import {kanitCyrillic} from '@/styles/fonts/fonts'
+import Image from "next/image";
+import {roomsDetails} from "@/types/types";
 
-interface EnterpriseDetailsProps {
-  enterprise: netEnterprise;
+interface RoomDetailsProps {
+  room: roomsDetails
 }
 
-export default function EnterpriseDetails({enterprise}: EnterpriseDetailsProps) {
+const RoomsDetails: FC<RoomDetailsProps> = ({room}) => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [showBokehLeft, setShowBokehLeft] = useState(false);
   const [showBokehRight, setShowBokehRight] = useState(true);
@@ -22,7 +23,7 @@ export default function EnterpriseDetails({enterprise}: EnterpriseDetailsProps) 
   const centerThumbnail = (index: number) => {
     if (smallImagesRef.current) {
       const container = smallImagesRef.current;
-      const thumbnailWidth = container.scrollWidth / enterprise.images.length;
+      const thumbnailWidth = container.scrollWidth / room.images.length;
       const targetScrollLeft = index * thumbnailWidth - container.clientWidth / 2 + thumbnailWidth / 2;
       container.scrollTo({
         left: targetScrollLeft,
@@ -65,24 +66,18 @@ export default function EnterpriseDetails({enterprise}: EnterpriseDetailsProps) 
       <div className={styles.container}>
         <div className={styles.mainImg}>
           <Image
-              src={enterprise.images[currentImageIndex].src}
-              alt={enterprise.name}
-              width={enterprise.images[currentImageIndex].width}
-              height={enterprise.images[currentImageIndex].height}
+              src={room.images[currentImageIndex].src}
+              alt={room.name}
+              width={room.images[currentImageIndex].width}
+              height={room.images[currentImageIndex].height}
               className={styles.imgBig}
           />
         </div>
         <div className={styles.content}>
-          <div className={styles.text}>
-            <div className={kanitCyrillic.className}>
-              <h3>{enterprise.name}</h3>
-            </div>
-            <p>{enterprise.description}</p>
-          </div>
           <div className={styles.smallImagesWrapper}>
             {showBokehLeft && <div className={styles.bokehLeft}></div>}
             <div className={styles.smallImages} ref={smallImagesRef}>
-              {enterprise.images.map((image, index) => (
+              {room.images.map((image, index) => (
                   <div
                       key={index}
                       className={`${styles.thumbnail} ${currentImageIndex === index ? styles.selectedImg : ''}`}
@@ -90,7 +85,7 @@ export default function EnterpriseDetails({enterprise}: EnterpriseDetailsProps) 
                   >
                     <Image
                         src={image.src}
-                        alt={`${enterprise.name} thumbnail ${index + 1}`}
+                        alt={`${room.name} thumbnail ${index + 1}`}
                         className={styles.img}
                         width={image.width}
                         height={image.height}
@@ -100,7 +95,23 @@ export default function EnterpriseDetails({enterprise}: EnterpriseDetailsProps) 
             </div>
             {showBokehRight && <div className={styles.bokehRight}></div>}
           </div>
+          <div className={styles.description}>
+            <div className={styles.text}>
+              <div className={kanitCyrillic.className}>
+                <h3>{room.name}</h3>
+              </div>
+              <p>{room.description}</p>
+            </div>
+            <div className={styles.button}>
+              <button>
+                <span className={styles.buttonText}>Забронировать за {room.price}</span>
+              </button>
+            </div>
+          </div>
+
         </div>
       </div>
   );
 }
+
+export default RoomsDetails;

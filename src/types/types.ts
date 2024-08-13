@@ -13,6 +13,21 @@ export interface mainPageImage {
   height: number;
 }
 
+export interface roomImage {
+  src: string;
+  width: number;
+  height: number;
+}
+
+export interface roomsDetails {
+  id: number;
+  type: string;
+  name: string;
+  description: string;
+  price: string;
+  images: roomImage[];
+}
+
 export interface innoDescription {
   title: string;
   description: string;

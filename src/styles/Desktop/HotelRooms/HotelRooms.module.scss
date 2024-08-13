@@ -1,0 +1,28 @@
+.container {
+  @apply flex flex-col mt-40 w-full 2xl:px-28 xl:px-20 px-10;
+  height: 100vh;
+}
+
+.header {
+  @apply flex flex-col mb-8 gap-4
+}
+
+.title {
+  @apply text-main font-normal
+}
+
+.toggleButtons {
+  @apply flex space-x-3
+}
+
+.Button {
+  @apply px-6 py-3 rounded-large xl:text-base 2xl:text-xl font-light
+}
+
+.activeButton {
+  @apply bg-gray text-white
+}
+
+.inactiveButton {
+  @apply bg-gray_icon text-gray_overlay
+}
