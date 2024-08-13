@@ -23,6 +23,7 @@ const CarouselMainMobile: FC<CarouselElementProps> = ({images}) => {
                   showStatus={false}
                   autoPlay={true}
                   infiniteLoop={true}
+                  swipeable={false}
                   className='main'>
           {images.map((image, index) => (
               <div key={index} className={styles.container}>

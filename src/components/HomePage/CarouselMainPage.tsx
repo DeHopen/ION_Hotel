@@ -147,7 +147,6 @@ const CarouselMainPage: FC<CarouselProps> = ({images}) => {
                 </div>
             ))}
           </div>
-
         </div>
       </div>
   );
