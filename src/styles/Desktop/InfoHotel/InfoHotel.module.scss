@@ -1,5 +1,6 @@
 .container {
-  @apply relative 2xl:px-28 xl:px-20 px-10  mt-40 mb-32;
+  @apply relative 2xl:px-28 xl:px-20 px-10 mt-40 mb-32;
+  height: 100vh;
 }
 
 .box {
@@ -51,8 +52,8 @@
 }
 
 .image {
-  @apply rounded-2xl object-cover w-816;
-  height: calc(100vh - 170px);
+  @apply rounded-2xl object-cover w-816 h-full;
+
 }
 
 .imageSection {

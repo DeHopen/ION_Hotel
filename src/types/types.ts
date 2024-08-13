@@ -38,9 +38,9 @@ export interface netImage {
 // Define an interface for the enterprise structure
 export interface netEnterprise {
   id: number;
+  type: string;
   name: string;
-  description1: string;
-  description2: string;
+  description: string;
   images: netImage[];
 }
 

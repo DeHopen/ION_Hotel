@@ -1,5 +1,6 @@
 .Container {
-  @apply relative flex flex-row justify-between text-gray 2xl:px-28 xl:px-20 px-10 mt-40 mb-2 gap-6
+  @apply relative flex flex-row justify-between text-gray 2xl:px-28 xl:px-20 px-10 mt-40 mb-2 gap-6;
+  height: 100vh;
 }
 
 .title {
@@ -14,16 +15,12 @@
   @apply text-lg
 }
 
-.link {
-  @apply flex absolute top-[37rem] text-xl text-orange-extra gap-3;
-}
-
 .images_col {
   @apply w-full flex flex-col gap-6
 }
 
 .img {
-  @apply w-[34rem] h-[20rem] object-cover rounded-3xl
+  @apply w-[34rem] h-full object-cover rounded-3xl
 }
 
 .right_img {
@@ -31,5 +28,5 @@
 }
 
 .ski_img {
-  @apply w-[34rem] h-[41.5rem] object-cover object-right rounded-3xl
+  @apply w-[34rem] h-full object-cover object-right rounded-3xl
 }

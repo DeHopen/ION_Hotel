@@ -1,6 +1,5 @@
 import Image from 'next/image';
-import {nunitoSans, kanitCyrillic} from "@/styles/fonts/fonts";
-import Link from "next/link";
+import {kanitCyrillic} from "@/styles/fonts/fonts";
 import styles from '@/styles/Desktop/Services/Services.module.scss'
 import {FC} from "react";
 import {hotelServices} from "@/types/types";
@@ -17,12 +16,6 @@ const Services: FC<ServicesProps> = ({services}) => {
         <div className={styles.header}>
           <div className={kanitCyrillic.className}>
             <h1 className={styles.title}>Услуги</h1>
-          </div>
-          <div className={nunitoSans.className}>
-            <Link href='#' className={styles.link}>
-              <span>Все услуги</span>
-              <Image src='/RoomPage/arrow_orange.svg' alt='arrow' width={24} height={24}/>
-            </Link>
           </div>
         </div>
         <div className={styles.content_box}>

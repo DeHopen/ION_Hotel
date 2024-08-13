@@ -1,26 +1,15 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, {useState, useEffect, useRef} from 'react';
 import styles from '@/styles/Desktop/Net/NetDetails.module.scss';
 import Image from 'next/image';
-import Link from 'next/link';
-import { kanitCyrillic } from '@/styles/fonts/fonts';
+import {kanitCyrillic} from '@/styles/fonts/fonts';
+import {netEnterprise} from "@/types/types";
 
-interface Enterprise {
-  id: number;
-  name: string;
-  description1: string;
-  description2: string;
-  images: {
-    src: string;
-    width: number;
-    height: number;
-  }[];
-}
 
 interface EnterpriseDetailsProps {
-  enterprise: Enterprise;
+  enterprise: netEnterprise;
 }
 
-export default function EnterpriseDetails({ enterprise }: EnterpriseDetailsProps) {
+export default function EnterpriseDetails({enterprise}: EnterpriseDetailsProps) {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [showBokehLeft, setShowBokehLeft] = useState(false);
   const [showBokehRight, setShowBokehRight] = useState(true);
@@ -33,10 +22,10 @@ export default function EnterpriseDetails({ enterprise }: EnterpriseDetailsProps
   useEffect(() => {
     const handleScroll = () => {
       if (smallImagesRef.current) {
-        const { scrollLeft, scrollWidth, clientWidth } = smallImagesRef.current;
+        const {scrollLeft, scrollWidth, clientWidth} = smallImagesRef.current;
         setShowBokehLeft(scrollLeft > 0);
 
-        setShowBokehRight (scrollLeft + clientWidth < scrollWidth);
+        setShowBokehRight(scrollLeft + clientWidth < scrollWidth);
       }
     };
 
@@ -64,12 +53,7 @@ export default function EnterpriseDetails({ enterprise }: EnterpriseDetailsProps
             <div className={kanitCyrillic.className}>
               <h3>{enterprise.name}</h3>
             </div>
-            <p>{enterprise.description1}</p>
-            <p>{enterprise.description2}</p>
-            <Link href="#" className={styles.link}>
-              <span>Подробнее</span>
-              <Image src="/RoomPage/arrow_orange.svg" alt="arrow" width={24} height={24} />
-            </Link>
+            <p>{enterprise.description}</p>
           </div>
           <div className={styles.smallImagesWrapper}>
             {showBokehLeft && <div className={styles.bokehLeft}></div>}

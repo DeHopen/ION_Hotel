@@ -1,7 +1,6 @@
 import {FC} from 'react';
 import Image from "next/image";
 import styles from '@/styles/Desktop/SkiPage/SkiPage.module.scss'
-import Link from "next/link";
 import {kanitCyrillic} from '@/styles/fonts/fonts'
 import {skiContent, skiImage} from "@/types/types";
 
@@ -26,10 +25,6 @@ const SkiPage: FC<SkiPageProps> = ({content, images}) => {
                 </div>
               </div>
           ))}
-          <Link href='#' className={styles.link}>
-            <span>Подробнее</span>
-            <Image src='/RoomPage/arrow_orange.svg' alt='arrow' width={24} height={24}/>
-          </Link>
         </div>
         <div className={styles.images_col}>
           <Image className={styles.img} src={images[0].src} alt='Dorms' width={images[0].width}

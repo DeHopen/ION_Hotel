@@ -1,23 +1,28 @@
-.container{
-  @apply flex flex-col mt-40 w-full px-28
+.container {
+  @apply flex flex-col mt-40 w-full 2xl:px-28 xl:px-20 px-10;
+  height: 100vh;
 }
 
-.header{
-  @apply flex justify-between items-center mb-8
+.header {
+  @apply flex flex-col mb-8 gap-4
 }
 
-.title{
+.title {
   @apply text-main font-normal
 }
 
-.buttons{
-  @apply relative flex gap-4
+.toggleButtons {
+  @apply flex space-x-3
 }
 
-.button1, .button2{
-  @apply px-6 py-3 backdrop-blur-2xl bg-gray_light rounded-2xl;
-  &:hover,
-  &:active{
-    @apply bg-gray
-  }
+.Button {
+  @apply px-6 py-3 rounded-large xl:text-base 2xl:text-xl font-light
+}
+
+.activeButton {
+  @apply bg-gray text-white
+}
+
+.inactiveButton {
+  @apply bg-gray_icon text-gray_overlay
 }

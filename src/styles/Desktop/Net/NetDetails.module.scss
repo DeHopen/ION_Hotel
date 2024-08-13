@@ -1,29 +1,31 @@
 .container {
-  @apply flex flex-row p-3 bg-gray_light rounded-3xl w-full;
+  @apply relative flex flex-row p-3 bg-gray_light rounded-3xl w-full;
+  height: calc(100vh - 170px);
 }
 
 .mainImg {
-  @apply relative w-1/2 overflow-hidden;
+  @apply relative w-1/2 h-full overflow-hidden rounded-2xl;
+
 }
 
 .imgBig {
-  @apply object-cover w-816 h-816 rounded-2xl;
-  transition: opacity 0.5s ease-in-out;
+  @apply object-cover w-full h-full rounded-2xl object-bottom;
 }
 
 .content {
-  @apply flex flex-col w-1/2 p-14 justify-between;
+  @apply flex flex-col w-1/2 2xl:px-14 2xl:py-11 xl:px-8 xl:py-5 justify-between;
 }
 
-.text{
-  @apply flex flex-col text-gray gap-5
+.text {
+  @apply flex flex-col text-gray gap-5;
+  margin-bottom: 10%;
 }
 
-.text h3{
+.text h3 {
   @apply text-main
 }
 
-.text p{
+.text p {
   @apply text-xl text-gray_text_light
 }
 
@@ -31,7 +33,7 @@
   @apply flex top-[37rem] text-xl text-orange-extra gap-3 mt-4;
 }
 
-.smallImagesWrapper{
+.smallImagesWrapper {
   @apply relative
 }
 

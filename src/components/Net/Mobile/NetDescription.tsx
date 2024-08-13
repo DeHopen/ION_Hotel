@@ -22,7 +22,7 @@ const NetDescription: FC<NetDescriptionProps> = ({enterprise}) => {
           <div className={kanitCyrillic.className}>
             <h3>{enterprise.name}</h3>
           </div>
-          <p>{enterprise.description1}</p>
+          <p>{enterprise.description}</p>
         </div>
       </>
   );
