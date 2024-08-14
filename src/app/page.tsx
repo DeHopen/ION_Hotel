@@ -34,9 +34,9 @@ export default function Home() {
             <main className='flex flex-col gap-16 mb-16'>
               <CarouselMainMobile images={CarouselMainImages}/>
               <RoomMobile room={rooms}/>
+              <NetMobile enterprises={enterprises}/>
               <InnopolisPageMobile PlaceholderText={innoPlaceholder} descriptions={innoDescriptions}/>
               <SkiPageMobile content={skiContents} images={skiImages}/>
-              <NetMobile enterprises={enterprises}/>
               <ServicesMobile services={services}/>
               <InfoHotelMobile content={contactsContent} mainImg={contactsImage} placeholder={contactsPlaceholder}/>
             </main>
@@ -44,9 +44,9 @@ export default function Home() {
             <main>
               <CarouselMainPage images={CarouselMainImages}/>
               <HotelRooms rooms={rooms}/>
+              <Net enterprises={enterprises}/>
               <Innopolis descriptions={innoDescriptions} PlaceholderText={innoPlaceholder}/>
               <SkiPage content={skiContents} images={skiImages}/>
-              <Net enterprises={enterprises}/>
               <Services services={services}/>
               <InfoHotel placeholder={contactsPlaceholder} mainImg={contactsImage} content={contactsContent}/>
             </main>

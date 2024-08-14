@@ -104,7 +104,7 @@ const RoomsDetails: FC<RoomDetailsProps> = ({room}) => {
             </div>
             <div className={styles.button}>
               <button>
-                <span className={styles.buttonText}>Забронировать за {room.price}</span>
+                <span className={styles.buttonText}>Забронировать за {room.price}Р</span>
               </button>
             </div>
           </div>

@@ -1,4 +1,4 @@
-import React, {FC, useState} from 'react';
+import React, {FC, useEffect, useRef, useState} from 'react';
 import {kanitCyrillic} from "@/styles/fonts/fonts";
 import styles from "@/styles/Mobile/HotelRooms/HotelRoomsMobile.module.scss";
 import {roomsDetails} from "@/types/types";
@@ -12,11 +12,28 @@ const RoomMobile: FC<roomMobileProps> = ({room}) => {
   console.log('Render NetMobile');
   const [currentRoom, setCurrentRoom] = useState(room[0]);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const buttonsRef = useRef<HTMLDivElement>(null);
 
   const handleSelectEnterprise = (index: number) => {
     setCurrentIndex(index);
     setCurrentRoom(room[index]);
   };
+
+  const centerButton = (index: number) => {
+    if (buttonsRef.current) {
+      const container = buttonsRef.current;
+      const buttonWidth = container.scrollWidth / room.length;
+      const targetScrollLeft = index * buttonWidth - container.clientWidth / 2 + buttonWidth / 2;
+      container.scrollTo({
+        left: targetScrollLeft,
+        behavior: 'smooth',
+      });
+    }
+  };
+
+  useEffect(() => {
+    centerButton(currentIndex);
+  }, [currentIndex]);
 
   return (
 
@@ -25,7 +42,7 @@ const RoomMobile: FC<roomMobileProps> = ({room}) => {
           <div className={kanitCyrillic.className}>
             <h1 className={styles.title}>Номера и цены</h1>
           </div>
-          <div className={styles.toggleButtons}>
+          <div className={styles.toggleButtons} ref={buttonsRef}>
             {room.map((enterprise, index) => (
                 <button
                     key={enterprise.id}
