@@ -1,27 +1,32 @@
-.footer{
+.footer {
   @apply flex flex-col items-center bg-gray text-white p-8 w-full gap-12;
 }
 
-.line{
-  @apply w-full
+.line {
+  @apply w-full bg-white;
+  height: 1px;
+  align-self: stretch;
+  stroke-width: 1px;
+  stroke: #fff;
+  opacity: 0.12;
 }
 
-.contact{
+.contact {
   @apply flex flex-col items-center gap-6 text-xl text-gray_light font-light
 }
 
-.social{
+.social {
   @apply flex items-center gap-8
 }
 
-.social a{
+.social a {
   @apply p-4 bg-white/5 rounded-full
 }
 
-.end{
+.end {
   @apply flex flex-col items-center text-base gap-6 text-gray_light font-light
 }
 
-.copyright{
+.copyright {
   @apply text-gray_light/30
 }
