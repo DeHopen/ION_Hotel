@@ -17,7 +17,7 @@ const InfoHotelMobile: FC<InfoHotelMobileProps> = ({content, mainImg, placeholde
   console.log('Render InfoHotelMobile');
 
   return (
-      <div className={styles.container}>
+      <div className={styles.container} id={'contacts'}>
         <div className={styles.box}>
           <div className={styles.textSection}>
             <div className={styles.textContent}>

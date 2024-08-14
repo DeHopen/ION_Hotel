@@ -1,6 +1,6 @@
 .Container {
-  @apply relative flex flex-row justify-between text-gray 2xl:px-28 xl:px-20 px-10 mt-40 mb-2 gap-6;
-  height: 100vh;
+  @apply relative flex flex-row justify-between text-gray 2xl:px-28 xl:px-20 px-10 gap-6;
+  height: calc(100vh - 70px);
 }
 
 .title {

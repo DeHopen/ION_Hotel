@@ -1,8 +1,8 @@
-import { FC } from 'react';
+import {FC} from 'react';
 import styles from '@/styles/Desktop/Layout/MenuDropdown.module.scss';
 import Image from "next/image";
 import {useDispatch} from "react-redux";
-import {setShowMenu} from "@/store/slices/layoutSlice";
+import {setShowMenu, setShowNav} from "@/store/slices/layoutSlice";
 
 
 const MenuDropdown: FC = () => {
@@ -11,6 +11,35 @@ const MenuDropdown: FC = () => {
   const handleClose = () => {
     dispatch(setShowMenu(false))
   }
+
+  const handleLinkClick = (event: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
+    event.preventDefault();
+    dispatch(setShowMenu(false));
+
+    if (targetId === 'main') {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth',
+      });
+      dispatch(setShowNav(true));
+    } else {
+      const targetElement = document.getElementById(targetId);
+      if (targetElement) {
+        const offset = -20; // Смещение от целевого элемента
+        const elementPosition = targetElement.getBoundingClientRect().top + window.scrollY;
+        const offsetPosition = elementPosition + offset;
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth',
+        });
+
+        setTimeout(() => {
+          dispatch(setShowNav(false));
+        }, 300);
+      }
+    }
+  };
 
   return (
       <div className={styles.menuDropdown}>
@@ -22,20 +51,20 @@ const MenuDropdown: FC = () => {
           </div>
           <div className={styles.menuLinks}>
             <a href="#">Бронирование</a>
-            <a href="#">Гостиница</a>
-            <a href="#">Услуги</a>
-            <a href="#">Номера и цены</a>
-            <a href="#">Контакты</a>
+            <a href="#" onClick={(e) => handleLinkClick(e, 'main')}>Гостиница</a>
+            <a href="#" onClick={(e) => handleLinkClick(e, 'services')}>Услуги</a>
+            <a href="#" onClick={(e) => handleLinkClick(e, 'price')}>Номера и цены</a>
+            <a href="#" onClick={(e) => handleLinkClick(e, 'contacts')}>Контакты</a>
           </div>
           <div className={styles.menuRight}>
-            <div className={styles.inno}>
+            <a className={styles.inno} onClick={(e) => handleLinkClick(e, 'inno')}>
               <Image className={styles.inno_img} src="/DropMenu/Inno.jpeg" width={202} height={135} alt="Иннополис"/>
               <span>Иннополис</span>
-            </div>
-            <div className={styles.ski}>
+            </a>
+            <a className={styles.ski} onClick={(e) => handleLinkClick(e, 'ski')}>
               <Image className={styles.ski_img} src="/DropMenu/ski.jpeg" width={202} height={135} alt="Горнолыжка"/>
               <span>Горнолыжка</span>
-            </div>
+            </a>
           </div>
         </div>
         <button className={styles.close} onClick={handleClose}>

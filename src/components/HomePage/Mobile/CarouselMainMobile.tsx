@@ -17,7 +17,7 @@ interface CarouselElementProps {
 const CarouselMainMobile: FC<CarouselElementProps> = ({images}) => {
 
   return (
-      <div className={Main.container}>
+      <div className={Main.container} id={'main'}>
         <Carousel showThumbs={false}
                   showArrows={false}
                   showStatus={false}

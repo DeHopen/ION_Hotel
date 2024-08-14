@@ -21,7 +21,7 @@ const Net: FC<NetProps> = ({enterprises}) => {
 
   return (
 
-      <div className={styles.container}>
+      <div className={styles.container} id='net'>
         <div className={styles.header}>
           <div className={kanitCyrillic.className}>
             <h1 className={styles.title}>Наша сеть SIXTY</h1>

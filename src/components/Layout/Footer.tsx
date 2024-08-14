@@ -1,8 +1,42 @@
 import React from 'react';
 import Image from "next/image";
-import styles from '@/styles/Desktop/Layout/Footer.module.scss';  // Import the SCSS file
+import styles from '@/styles/Desktop/Layout/Footer.module.scss';
+import {setShowMenu, setShowNav} from "@/store/slices/layoutSlice";
+import {useDispatch} from "react-redux";  // Import the SCSS file
 
 const Footer = () => {
+  const dispatch = useDispatch();
+
+
+  const handleLinkClick = (event: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
+    event.preventDefault();
+    dispatch(setShowMenu(false));
+
+    if (targetId === 'main') {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth',
+      });
+      dispatch(setShowNav(true));
+    } else {
+      const targetElement = document.getElementById(targetId);
+      if (targetElement) {
+        const offset = -20; // Смещение от целевого элемента
+        const elementPosition = targetElement.getBoundingClientRect().top + window.scrollY;
+        const offsetPosition = elementPosition + offset;
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth',
+        });
+
+        setTimeout(() => {
+          dispatch(setShowNav(false));
+        }, 300);
+      }
+    }
+  };
+
   return (
       <footer className={styles.footer}>
         <div className={styles.footerContainer}>
@@ -13,17 +47,17 @@ const Footer = () => {
           <div className={styles.footerSection}>
             <nav>
               <a href="#">Бронирование</a>
-              <a href="#">Гостиница</a>
-              <a href="#">Номера и цены</a>
+              <a href="#" onClick={(e) => handleLinkClick(e, 'main')}>Гостиница</a>
+              <a href="#" onClick={(e) => handleLinkClick(e, 'price')}>Номера и цены</a>
               <a href="#">Спецпредложения</a>
             </nav>
           </div>
           <div className={styles.footerSection}>
             <nav>
-              <a href="#">Иннополис</a>
-              <a href="#">Горнолыжка</a>
-              <a href="#">Услуги</a>
-              <a href="#">Контакты</a>
+              <a href="#" onClick={(e) => handleLinkClick(e, 'inno')}>Иннополис</a>
+              <a href="#" onClick={(e) => handleLinkClick(e, 'ski')}>Горнолыжка</a>
+              <a href="#" onClick={(e) => handleLinkClick(e, 'services')}>Услуги</a>
+              <a href="#" onClick={(e) => handleLinkClick(e, 'contacts')}>Контакты</a>
             </nav>
           </div>
           <div className={styles.footerSection}>

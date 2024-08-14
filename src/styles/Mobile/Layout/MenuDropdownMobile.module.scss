@@ -1,6 +1,6 @@
-.menuDropdown{
+.menuDropdown {
   @apply fixed top-20 left-0 right-0 bg-white shadow-lg p-4 rounded-b-3xl z-30;
-  height: calc(100vh - 5rem);
+  height: calc(100vh - 8rem);
 
 }
 
@@ -15,23 +15,23 @@
   display: none;
 }
 
-.menuLinks{
+.menuLinks {
   @apply flex flex-col p-8 gap-6 bg-gray_light rounded-3xl text-gray text-xl
 }
 
-.menuLinks a{
+.menuLinks a {
   @apply active:text-orange-extra
 }
 
-.nodes{
+.nodes {
   @apply flex flex-col gap-4
 }
 
-.nodes a{
+.nodes a {
   @apply flex gap-8 w-full items-center p-3 bg-gray_light rounded-3xl text-gray active:text-orange-extra text-xl;
 }
 
-.nodes a img{
+.nodes a img {
   @apply w-20 h-20 object-cover rounded-2xl
 }
 

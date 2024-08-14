@@ -22,7 +22,7 @@ const HotelRooms: FC<HotelRoomsProps> = ({rooms}) => {
 
   return (
 
-      <div className={styles.container}>
+      <div className={styles.container} id='price'>
         <div className={styles.header}>
           <div className={kanitCyrillic.className}>
             <h1 className={styles.title}>Номера и цены</h1>

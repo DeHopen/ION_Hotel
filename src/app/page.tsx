@@ -41,7 +41,7 @@ export default function Home() {
               <InfoHotelMobile content={contactsContent} mainImg={contactsImage} placeholder={contactsPlaceholder}/>
             </main>
         ) : (
-            <main>
+            <main className='flex flex-col gap-32 mb-28'>
               <CarouselMainPage images={CarouselMainImages}/>
               <HotelRooms rooms={rooms}/>
               <Net enterprises={enterprises}/>

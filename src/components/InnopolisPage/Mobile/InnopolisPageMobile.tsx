@@ -15,7 +15,7 @@ const InnopolisPageMobile: FC<InnopolisPageMobileProps> = ({PlaceholderText, des
   console.log('Render InnopolisPageMobile');
 
   return (
-      <div className={styles.container}>
+      <div className={styles.container} id={'inno'}>
         <header className={styles.header}>
           <div className={kanitCyrillic.className}>
             <h1 className={styles.title}>Иннополис</h1>

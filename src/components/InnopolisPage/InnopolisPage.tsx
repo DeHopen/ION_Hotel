@@ -13,7 +13,7 @@ interface InnopolisPageProps {
 const InnopolisPage: FC<InnopolisPageProps> = ({descriptions, PlaceholderText}) => {
 
   return (
-      <div className={styles.container}>
+      <div className={styles.container} id='inno'>
         <header className={styles.header}>
           <div className={kanitCyrillic.className}>
             <h1 className={styles.title}>Иннополис</h1>

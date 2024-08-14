@@ -13,7 +13,7 @@ const SkiPage: FC<SkiPageProps> = ({content, images}) => {
 
   return (
 
-      <div className={styles.Container}>
+      <div className={styles.Container} id='ski'>
         <div className={styles.content}>
           <div className={kanitCyrillic.className}>
             <h1 className={styles.title}>Горнолыжка</h1>

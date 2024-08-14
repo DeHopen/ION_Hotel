@@ -12,7 +12,7 @@ const Services: FC<ServicesProps> = ({services}) => {
 
   return (
 
-      <div className={styles.container}>
+      <div className={styles.container} id='services'>
         <div className={styles.header}>
           <div className={kanitCyrillic.className}>
             <h1 className={styles.title}>Услуги</h1>

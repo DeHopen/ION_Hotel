@@ -2,7 +2,7 @@ import {FC, useEffect, useState} from 'react';
 import styles from "@/styles/Mobile/Layout/HeaderMobile.module.scss";
 import {useDispatch, useSelector} from "react-redux";
 import {RootState} from "@/store/store";
-import {setShowMenu} from "@/store/slices/layoutSlice";
+import {setShowMenu, setShowNav} from "@/store/slices/layoutSlice";
 import Image from "next/image";
 import MenuDropdownMobile from "@/components/MenuDropdown/Mobile/MenuDropdownMobile";
 
@@ -10,7 +10,6 @@ import MenuDropdownMobile from "@/components/MenuDropdown/Mobile/MenuDropdownMob
 const HeaderMobile: FC = () => {
   console.log('Render HeaderMobile');
   const [scrollPosition, setScrollPosition] = useState(0);
-  const [headerVisible, setHeaderVisible] = useState(true);
   const layout = useSelector((state: RootState) => state.layout);
   const dispatch = useDispatch();
 
@@ -18,16 +17,21 @@ const HeaderMobile: FC = () => {
     const handleScroll = () => {
       const currentScrollPos = window.scrollY;
       if (!layout.showMenu) {
-        setHeaderVisible(scrollPosition > currentScrollPos || currentScrollPos < 10);
+        const shouldShowNav = scrollPosition > currentScrollPos || currentScrollPos < 10;
+        if (layout.showNav !== shouldShowNav) {
+          dispatch(setShowNav(shouldShowNav));
+        }
       } else {
-        setHeaderVisible(true);
+        if (!layout.showNav) {
+          dispatch(setShowNav(true));
+        }
       }
       setScrollPosition(currentScrollPos);
     };
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [scrollPosition]);
+  }, [scrollPosition, layout.showMenu, layout.showNav, dispatch]);
 
   const handleMenuToggle = () => {
     dispatch(setShowMenu(!layout.showMenu));
@@ -36,7 +40,7 @@ const HeaderMobile: FC = () => {
   return (
       <>
         <header
-            className={`${styles.header} ${headerVisible ? styles.visible : styles.hidden} ${layout.showMenu ? styles.withShadow : ''}`}>
+            className={`${styles.header} ${layout.showNav ? styles.visible : styles.hidden} ${layout.showMenu ? styles.withShadow : ''}`}>
           <div className={styles.container}>
             <button onClick={handleMenuToggle}>
               <Image className={styles.menu} src={layout.showMenu ? "/Close.svg" : "/Menu.svg"}

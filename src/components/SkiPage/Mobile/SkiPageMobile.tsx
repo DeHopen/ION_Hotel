@@ -13,7 +13,7 @@ const SkiPageMobile: FC<SkiPageMobileProps> = ({content, images}) => {
   console.log('Render SkiPageMobile');
 
   return (
-      <div className={styles.Container}>
+      <div className={styles.Container} id={'ski'}>
         <div className={styles.content}>
           <div className={styles.text}>
             <div className={kanitCyrillic.className}>
