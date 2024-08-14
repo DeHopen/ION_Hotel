@@ -1,7 +1,7 @@
 import {FC} from 'react';
 import styles from "@/styles/Mobile/Services/ServicesMobile.module.scss";
-import {kanitCyrillic, nunitoSans} from "@/styles/fonts/fonts";
-import Link from "next/link";
+import {kanitCyrillic} from "@/styles/fonts/fonts";
+
 import Image from "next/image";
 import {hotelServices} from "@/types/types";
 
@@ -18,12 +18,6 @@ const ServicesMobile: FC<ServicesMobileProps> = ({services}) => {
         <div className={styles.header}>
           <div className={kanitCyrillic.className}>
             <h1 className={styles.title}>Услуги</h1>
-          </div>
-          <div className={nunitoSans.className}>
-            <Link href='#' className={styles.link}>
-              <span>Все услуги</span>
-              <Image src='/RoomPage/arrow_orange.svg' alt='arrow' width={24} height={24}/>
-            </Link>
           </div>
         </div>
         <div className={styles.content_box}>

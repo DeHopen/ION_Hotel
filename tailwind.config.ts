@@ -19,7 +19,9 @@ const config: Config = {
         '816': '51rem',
       },
       screens: {
-        'sm': '640px',
+        'sm': '340px',
+
+        'xs': '391px',
 
         'md': '768px',
 

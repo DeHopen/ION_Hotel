@@ -1,5 +1,5 @@
 .container {
-  @apply flex flex-col mt-16 w-full px-4
+  @apply flex flex-col w-full px-4
 }
 
 .header {
@@ -10,16 +10,27 @@
   @apply text-main font-normal
 }
 
-.buttons {
-  @apply relative flex w-full justify-center items-center gap-4
+.toggleButtons {
+  @apply flex space-x-3 overflow-x-auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
 
-.button1, .button2 {
-  @apply py-3 w-full flex justify-center backdrop-blur-2xl bg-gray_light rounded-2xl;
-  &:hover,
-  &:active {
-    @apply bg-gray
-  }
+.toggleButtons::-webkit-scrollbar {
+  display: none;
+}
+
+.Button {
+  @apply px-6 py-3 rounded-large xl:text-base 2xl:text-xl font-light
+}
+
+.activeButton {
+  @apply bg-gray text-white
+}
+
+.inactiveButton {
+  @apply bg-gray_icon text-gray_overlay
 }
 
 .containerContent {
@@ -47,5 +58,5 @@
 }
 
 .text p {
-  @apply text-base
+  @apply text-base text-gray_text_light
 }

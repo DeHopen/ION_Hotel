@@ -2,7 +2,6 @@ import {FC} from 'react';
 import styles from "@/styles/Mobile/InnopolisPage/InnopolisPageMobile.module.scss";
 import {kanitCyrillic} from "@/styles/fonts/fonts";
 import Image from "next/image";
-import Link from "next/link";
 import Placeholder from "@/components/UniversalComponents/Placeholder";
 import {innoDescription, placeholderText} from "@/types/types";
 
@@ -42,10 +41,6 @@ const InnopolisPageMobile: FC<InnopolisPageMobileProps> = ({PlaceholderText, des
                   </li>
               ))}
             </ul>
-            <Link href='#' className={styles.link}>
-              <span>Подробнее</span>
-              <Image src='/RoomPage/arrow_orange.svg' alt='arrow' width={24} height={24}/>
-            </Link>
           </div>
         </main>
       </div>

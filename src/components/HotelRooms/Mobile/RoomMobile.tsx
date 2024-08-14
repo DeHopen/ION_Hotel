@@ -1,33 +1,32 @@
 import React, {FC, useState} from 'react';
-import styles from "@/styles/Mobile/Net/NetMobile.module.scss";
 import {kanitCyrillic} from "@/styles/fonts/fonts";
-import stylesMobile from "@/styles/Mobile/Net/NetMobile.module.scss";
-import {netEnterprise} from "@/types/types";
-import NetDescription from "@/components/Net/Mobile/NetDescription";
+import styles from "@/styles/Mobile/HotelRooms/HotelRoomsMobile.module.scss";
+import {roomsDetails} from "@/types/types";
+import RoomDescription from "@/components/HotelRooms/Mobile/RoomDescription";
 
-interface NetMobileProps {
-  enterprises: netEnterprise[];
+interface roomMobileProps {
+  room: roomsDetails[];
 }
 
-const NetMobile: FC<NetMobileProps> = ({enterprises}) => {
+const RoomMobile: FC<roomMobileProps> = ({room}) => {
   console.log('Render NetMobile');
-  const [currentEnterprise, setCurrentEnterprise] = useState(enterprises[0]);
+  const [currentRoom, setCurrentRoom] = useState(room[0]);
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const handleSelectEnterprise = (index: number) => {
     setCurrentIndex(index);
-    setCurrentEnterprise(enterprises[index]);
+    setCurrentRoom(room[index]);
   };
 
   return (
 
-      <div className={stylesMobile.container}>
-        <div className={stylesMobile.header}>
+      <div className={styles.container}>
+        <div className={styles.header}>
           <div className={kanitCyrillic.className}>
-            <h1 className={stylesMobile.title}>Наша сеть</h1>
+            <h1 className={styles.title}>Номера и цены</h1>
           </div>
           <div className={styles.toggleButtons}>
-            {enterprises.map((enterprise, index) => (
+            {room.map((enterprise, index) => (
                 <button
                     key={enterprise.id}
                     className={`${styles.Button}  ${currentIndex === index ? styles.activeButton : styles.inactiveButton}`}
@@ -39,10 +38,10 @@ const NetMobile: FC<NetMobileProps> = ({enterprises}) => {
           </div>
         </div>
         <div className={styles.containerContent}>
-          <NetDescription enterprise={currentEnterprise}/>
+          <RoomDescription room={currentRoom}/>
         </div>
       </div>
   );
 };
 
-export default NetMobile;
+export default RoomMobile;

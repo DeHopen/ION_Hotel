@@ -1,8 +1,6 @@
 import React, {FC} from 'react';
 import styles from "@/styles/Mobile/SkiPage/SkiPageMobile.module.scss";
 import {kanitCyrillic} from "@/styles/fonts/fonts";
-import Link from "next/link";
-import Image from "next/image";
 import CarouselSki from "@/components/SkiPage/Mobile/CarouselSki";
 import {skiContent, skiImage} from "@/types/types";
 
@@ -28,10 +26,6 @@ const SkiPageMobile: FC<SkiPageMobileProps> = ({content, images}) => {
                   </div>
                 </div>
             ))}
-            <Link href='#' className={styles.link}>
-              <span>Подробнее</span>
-              <Image src='/RoomPage/arrow_orange.svg' alt='arrow' width={24} height={24}/>
-            </Link>
           </div>
           <div className={styles.carousel}>
             <CarouselSki images={images}/>

@@ -1,80 +1,71 @@
-.carouselContainer {
-  @apply relative flex items-center justify-center w-full;
+.container {
+  @apply flex flex-col w-full mt-16 px-4
 }
 
-.imagesContainer {
-  @apply flex flex-row space-x-6 rounded-3xl w-full;
+.header {
+  @apply flex flex-col mb-8 gap-5
 }
 
-.mainImage {
-  @apply rounded-3xl transition-transform w-full;
+.title {
+  @apply text-main font-normal
 }
 
-.textContainer {
-  @apply bg-gray_light rounded-3xl;
+.toggleButtons {
+  @apply flex space-x-3 overflow-x-auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
 
-.main_image {
-  @apply object-cover w-832 h-832 rounded-3xl;
+.toggleButtons::-webkit-scrollbar {
+  display: none;
 }
 
-.imageCaption {
-  @apply text-gray px-8 py-4 flex flex-col;
+.Button {
+  @apply px-6 py-3 rounded-large xl:text-base 2xl:text-xl font-light
 }
 
-.imageCaption div {
-  @apply text-2xl font-normal
+.activeButton {
+  @apply bg-gray text-white
 }
 
-.imageCaption span {
-  @apply text-sm
+.inactiveButton {
+  @apply bg-gray_icon text-gray_overlay
 }
 
-.smallImages {
-  @apply flex flex-row gap-6 w-full;
+.containerContent {
+  @apply flex flex-col p-3 bg-gray_light rounded-large w-full;
 }
 
-.smallImage {
-  @apply transition-transform duration-500 ;
+.carousel {
+  @apply w-full h-full rounded-3xl
 }
 
-.small_image {
-  @apply object-cover rounded-3xl h-[33rem] w-[25rem]
+.image {
+  @apply h-full object-cover rounded-3xl
 }
 
-.navigationButtons {
-  @apply absolute inset-0 flex justify-between items-center p-4;
+.content {
+  @apply flex flex-col justify-between p-8
 }
 
-.navButton {
-  @apply text-white bg-black/50 p-2 rounded-full;
+.button {
+  @apply text-white;
+  margin-top: 10%;
 }
 
-.animating {
-  animation: scaleIn 0.5s ease-in-out;
+.button button {
+  @apply flex justify-center w-full py-4 bg-gray rounded-2xl
 }
 
-.anotherRoomButton {
-  @apply absolute bottom-0 right-0;
+.text {
+  @apply flex flex-col gap-6
 }
 
-.buttonLink {
-  @apply flex items-center text-gray pr-6 text-xl bg-gray_light gap-6 rounded-3xl transition-colors;
+.text h3 {
+  @apply text-h2
 }
 
-.img_room {
-  @apply w-28 h-28 rounded-3xl
-}
-
-.textAndArrow {
-  @apply flex gap-10
-}
-
-@keyframes scaleIn {
-  0% {
-    transform: scale(1);
-  }
-  100% {
-    transform: scale(1.1);
-  }
+.text p {
+  @apply text-base text-gray_text_light
 }

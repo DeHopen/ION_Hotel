@@ -21,6 +21,7 @@ import {
 } from "@/data/data";
 import Net from "@/components/Net/Net";
 import ServicesMobile from "@/components/Services/Mobile/ServicesMobile";
+import RoomMobile from "@/components/HotelRooms/Mobile/RoomMobile";
 
 
 export default function Home() {
@@ -30,8 +31,9 @@ export default function Home() {
   return (
       <>
         {isMobile ? (
-            <main>
+            <main className='flex flex-col gap-16 mb-16'>
               <CarouselMainMobile images={CarouselMainImages}/>
+              <RoomMobile room={rooms}/>
               <InnopolisPageMobile PlaceholderText={innoPlaceholder} descriptions={innoDescriptions}/>
               <SkiPageMobile content={skiContents} images={skiImages}/>
               <NetMobile enterprises={enterprises}/>
